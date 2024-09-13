@@ -7,9 +7,9 @@
       (builtins.readDir
         (builtins.filterSource (path: type: type == "directory") x)));
 in
-  (builtins.listToAttrs (map
+  { CEPrograms = builtins.listToAttrs (map
     (path: {
       name = builtins.baseNameOf path;
       value = callPackage path packages;
     })
-    (getDirs ./ce-programs))))
+    (getDirs ./ce-programs));})

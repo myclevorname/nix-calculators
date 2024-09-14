@@ -8,9 +8,6 @@ let builder = stdenv.mkDerivation {
   name = "tiboyce-romgen";
   src = tiboyce.src + "/tiboyce-romgen";
   enableParallelBuilding = true;
-  buildPhase = ''
-    make $makeFlags
-  '';
   installPhase = ''
     mkdir -p $out/bin
     cp tiboyce-romgen $out/bin

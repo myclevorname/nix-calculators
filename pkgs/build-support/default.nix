@@ -6,4 +6,5 @@ with packages; rec {
   ce-toolchain = callPackage ./ce-toolchain { inherit fasmg convbin llvm-ez80; };
   buildCEProgram = callPackage ./buildCEProgram { inherit fasmg convbin llvm-ez80 ce-toolchain; };
   ce-libs = callPackage ./ce-libs { inherit ce-toolchain; };
+  buildTIBoyCEROM = callPackage ./buildTIBoyCEROM { tiboyce = packages.CEPrograms.tiboyce; };
 }

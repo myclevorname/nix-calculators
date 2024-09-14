@@ -10,4 +10,10 @@ buildCEProgram {
   postInstall = ''
     cp -r creating_icons.md screenshots $out
   '';
+  meta = {
+    homepage = "https://github.com/mateoconlechuga/cesium";
+    description = "A GUI shell for the TI-84+CE";
+    license = with lib.licenses; [ bsd3 ];
+    maintainers = with lib.maintainers; [ clevor ];
+  };
 }

@@ -4,8 +4,8 @@ stdenv.mkDerivation {
     owner = "CE-Programming";
     repo = "toolchain";
     fetchSubmodules = true;
-    rev = "ece00f47e75a74de3d2846589ae48ce19be221f3";
-    hash = "sha256-GWulPYZ1rCI5hjEw6hV028Cx0zws5aGSC0tw9kUuHOc=";
+    rev = "98d855b2d01b44f626af5bf02523e97f3c4a7ed8";
+    hash = "sha256-gLafZZxrZB3kuyM/NMnDMn8HyRjm5/srnq0VhsgXzJM=";
   };
   name = "ce-toolchain";
   patchPhase = ''

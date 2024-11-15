@@ -4,32 +4,23 @@ stdenv.mkDerivation {
     owner = "CE-Programming";
     repo = "toolchain";
     fetchSubmodules = true;
-    rev = "98d855b2d01b44f626af5bf02523e97f3c4a7ed8";
-    hash = "sha256-gLafZZxrZB3kuyM/NMnDMn8HyRjm5/srnq0VhsgXzJM=";
+    rev = "a7980d2596f980a826142876b761446a8b3f0185";
+    hash = "sha256-rz1EBctXMAgIdod5MIyfFPu8tLL3txyH9lNOE4eoKxg=";
   };
+  patches = [ ./edit-makefiles.patch ];
   name = "ce-toolchain";
-  patchPhase = ''
-    substituteInPlace src/common.mk --replace-fail \
-      "INSTALL_DIR := \$(DESTDIR)\$(PREFIX)" "INSTALL_DIR := $out"
-    substituteInPlace makefile --replace-fail \
-      "TOOLS := fasmg convbin convimg convfont cedev-config" \
-      "TOOLS := fasmg cedev-config" --replace-fail \
-      "	\$(Q)\$(call COPY,\$(call NATIVEEXE,tools/convfont/convfont),\$(INSTALL_BIN))
-    	\$(Q)\$(call COPY,\$(call NATIVEEXE,tools/convimg/bin/convimg),\$(INSTALL_BIN))
-    	\$(Q)\$(call COPY,\$(call NATIVEEXE,tools/convbin/bin/convbin),\$(INSTALL_BIN))" "" \
-      --replace-fail "tools/convbin/bin/" ""
-    substituteInPlace tools/convimg/Makefile tools/cedev-config/Makefile \
-      --replace-fail "-static" ""
-    substituteInPlace src/makefile.mk \
-      --replace-fail "\$(call NATIVEPATH,\$(BIN)/fasmg)" "${fasmg}/bin/fasmg" \
-      --replace-fail "\$(call NATIVEPATH,\$(BIN)/convbin)" "${convbin}/bin/convbin" \
-      --replace-fail "\$(call NATIVEPATH,\$(BIN)/convimg)" "${convimg}/bin/convimg" \
-      --replace-fail "\$(call NATIVEPATH,\$(BIN)/cemu-autotester)" "cemu-autotester" \
-      --replace-fail "\$(call NATIVEPATH,\$(BIN)/ez80-clang)" "${llvm-ez80}/bin/ez80-clang" \
-      --replace-fail "\$(call NATIVEPATH,\$(BIN)/ez80-link)" "${llvm-ez80}/bin/ez80-link" \
-      --replace-fail "CONVBINFLAGS += -b \$(call QUOTE_ARG,\$(COMMENT))" ""
+  postPatch = ''
+    mkdir -p $out/bin
+    ln -s ${convbin}/bin/convbin $out/bin
+    ln -s ${convimg}/bin/convimg $out/bin
+    ln -s ${convfont}/bin/convfont $out/bin
+    ln -s ${llvm-ez80}/bin/ez80-link $out/bin
+    ln -s ${llvm-ez80}/bin/ez80-clang $out/bin
+    ln -s ${fasmg}/bin/fasmg $out/bin
+    substituteAllInPlace makefile
+    substituteAllInPlace src/common.mk
+    substituteAllInPlace src/makefile.mk
   '';
-  doCheck = true;
   enableParallelBuilding = true;
 
   buildInputs = [ convimg convfont llvm-ez80 fasmg convbin ];

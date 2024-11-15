@@ -1,5 +1,5 @@
 { fasmg, stdenv, cmake, python3, lib, fetchFromGitHub }:
-stdenv.mkDerivation {
+stdenv.mkDerivation (finalAttrs: {
   pname = "llvm-ez80";
   version = "0-unstable";
 
@@ -12,25 +12,21 @@ stdenv.mkDerivation {
     hash = "sha256-g9AVQF48HvaOzwm6Fr935+2+Ch+nvUV2afygb3iUflw=";
   };
 
-  configurePhase = ''
-    mkdir build
-    cd build
-    cmake ../llvm -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_PROJECTS=clang -DLLVM_TARGETS_TO_BUILD= -DLLVM_EXPERIMENTAL_TARGETS_TO_BUILD=Z80
-    cd ..
+  patchPhase = ''
+    chmod +w --recursive /build/${finalAttrs.src.name}
   '';
 
-  buildPhase = ''
-    cd build
-    cmake --build . --target clang llvm-link -j $NIX_BUILD_CORES
-    cd ..
-  '';
+  cmakeFlags = [ "-DCMAKE_BUILD_TYPE=Release" "-DLLVM_ENABLE_PROJECTS=clang" "-DLLVM_TARGETS_TO_BUILD=" "-DLLVM_EXPERIMENTAL_TARGETS_TO_BUILD=Z80" ];
+  buildFlags = [ "llvm-link" "clang" ];
+
+  sourceRoot = finalAttrs.src.name + "/llvm";
 
   doCheck = false;
 
-  installPhase = ''
+  installPhase = let binDir = "/build/${finalAttrs.sourceRoot}/build/bin"; in ''
     mkdir -p $out/bin
-    cp build/bin/clang $out/bin/ez80-clang
-    cp build/bin/llvm-link $out/bin/ez80-link
+    cp ${binDir}/llvm-link $out/bin/ez80-link
+    cp ${binDir}/clang $out/bin/ez80-clang
   '';
 
   meta = {
@@ -48,4 +44,4 @@ stdenv.mkDerivation {
    maintainers = with lib.maintainers; [ clevor ];
    platforms = lib.platforms.unix;
   };
-}
+})

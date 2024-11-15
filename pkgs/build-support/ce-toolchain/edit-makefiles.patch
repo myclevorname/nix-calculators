@@ -1,0 +1,81 @@
+diff --git a/makefile b/makefile
+index 3dfde62a..c4f70142 100644
+--- a/makefile
++++ b/makefile
+@@ -14,14 +14,14 @@
+ # along with this program; if not, write to the Free Software Foundation,
+ # Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ 
+-DESTDIR = $(CURDIR)/
+-PREFIX = CEdev
++DESTDIR = @out@
++PREFIX = 
+ 
+ include $(CURDIR)/src/common.mk
+ 
+ LIBS := libload graphx fontlibc keypadc fileioc usbdrvce srldrvce msddrvce fatdrvce
+ SRCS := ce crt libc libcxx
+-TOOLS := fasmg convbin convimg convfont cedev-config
++TOOLS := fasmg cedev-config
+ 
+ ifeq ($(OS),Windows_NT)
+ WINDOWS_COPY := $(call COPY,resources\windows\make.exe,$(INSTALL_BIN)) && $(call COPY,resources\windows\cedev.bat,$(INSTALL_DIR))
+@@ -59,9 +59,6 @@ install: all $(addprefix install-,$(SRCS)) $(addprefix install-,$(LIBS))
+ 	$(Q)$(call COPY,$(call NATIVEPATH,tools/fasmg/fasmg-ez80/commands.alm),$(INSTALL_META))
+ 	$(Q)$(call COPY,$(call NATIVEPATH,tools/fasmg/fasmg-ez80/ez80.alm),$(INSTALL_META))
+ 	$(Q)$(call COPY,$(call NATIVEPATH,tools/fasmg/fasmg-ez80/ld.alm),$(INSTALL_META))
+-	$(Q)$(call COPY,$(call NATIVEEXE,tools/convfont/convfont),$(INSTALL_BIN))
+-	$(Q)$(call COPY,$(call NATIVEEXE,tools/convimg/bin/convimg),$(INSTALL_BIN))
+-	$(Q)$(call COPY,$(call NATIVEEXE,tools/convbin/bin/convbin),$(INSTALL_BIN))
+ 	$(Q)$(call COPY,$(call NATIVEEXE,tools/cedev-config/bin/cedev-config),$(INSTALL_BIN))
+ 	$(Q)$(WINDOWS_COPY)
+ 
+@@ -72,7 +69,7 @@ $(addprefix install-,$(LIBS)): $(TOOLS)
+ 	$(Q)$(MAKE) -C $(call SRCDIR,$(patsubst install-%,%,$@)) install PREFIX=$(PREFIX) DESTDIR=$(DESTDIR)
+ 
+ libs: $(LIBS) $(TOOLS)
+-	$(Q)$(call NATIVEEXE,tools/convbin/bin/convbin) --oformat 8xg-auto-extract \
++	$(Q)$(call NATIVEEXE,convbin) --oformat 8xg-auto-extract \
+ 		$(foreach library,$(LIBS),$(addprefix --input ,$(call SRCDIR,$(library))/$(library).8xv)) --output $(call NATIVEPATH,clibs.8xg)
+ 
+ libs-zip:
+diff --git a/src/makefile.mk b/src/makefile.mk
+index 0b357e45..9d7a573e 100644
+--- a/src/makefile.mk
++++ b/src/makefile.mk
+@@ -49,9 +49,9 @@ PREFER_OS_CRT ?= NO
+ PREFER_OS_LIBC ?= YES
+ LIBLOAD_OPTIONAL ?=
+ COMPRESSED_MODE ?= zx7
+-COMMENT ?= $(shell cedev-config --comment)
++COMMENT ?= 
+ #----------------------------
+-CEDEV_TOOLCHAIN ?= $(shell cedev-config --prefix)
++CEDEV_TOOLCHAIN ?= $(shell $(BIN)/cedev-config --prefix)
+ #----------------------------
+ 
+ ifneq ($(words $(NAME)),1)
+@@ -83,7 +83,7 @@ Q =
+ FASMG_V := -v$(V)
+ endif
+ 
+-BIN ?= $(CEDEV_TOOLCHAIN)/bin
++BIN ?= @out@/bin
+ # get the os specific items
+ ifeq ($(OS),Windows_NT)
+ SHELL = cmd.exe
+diff --git a/tools/cedev-config/Makefile b/tools/cedev-config/Makefile
+index 692d8cad..f6abda72 100644
+--- a/tools/cedev-config/Makefile
++++ b/tools/cedev-config/Makefile
+@@ -33,8 +33,8 @@ else
+   else
+     STRIP = strip --strip-all "$1"
+     CFLAGS += -D_XOPEN_SOURCE=500 -static
+-    LDFLAGS += -static
+-    LIBRARIES += dl
++    LDFLAGS += 
++    LIBRARIES += 
+   endif
+ endif
+ 

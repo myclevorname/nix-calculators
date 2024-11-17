@@ -1,4 +1,10 @@
-{ buildCEProgram, fetchFromGitHub, lib, spasm-ng, ... }:
+{
+  buildCEProgram,
+  fetchFromGitHub,
+  lib,
+  spasm-ng,
+  ...
+}:
 buildCEProgram {
   name = "tiboyce";
   src = fetchFromGitHub {

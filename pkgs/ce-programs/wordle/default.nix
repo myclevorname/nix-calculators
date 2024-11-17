@@ -1,4 +1,9 @@
-{ buildCEProgram, fetchFromGitHub, lib, ... }:
+{
+  buildCEProgram,
+  fetchFromGitHub,
+  lib,
+  ...
+}:
 buildCEProgram {
   name = "wordle";
   src = fetchFromGitHub {
@@ -8,13 +13,13 @@ buildCEProgram {
     hash = "sha256-38fU6I8Ysgd4oZzmQWhyViAazcjLjMkJ+hhGAJkUpPM=";
   };
   buildPhase = ''
-  runHook preBuild
-  make gfx
-  SELLOUT=1 make $makeFlags
-  mv bin/WORDLE.8xp bin/WORDLE_sellout.8xp
-  SELLOUT=0 make $makeFlags
-  mv bin/WORDLE.8xp bin/WORDLE_classic.8xp
-  runHook postBuild
+    runHook preBuild
+    make gfx
+    SELLOUT=1 make $makeFlags
+    mv bin/WORDLE.8xp bin/WORDLE_sellout.8xp
+    SELLOUT=0 make $makeFlags
+    mv bin/WORDLE.8xp bin/WORDLE_classic.8xp
+    runHook postBuild
   '';
 
   meta = {

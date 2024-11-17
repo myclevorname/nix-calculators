@@ -1,4 +1,11 @@
-{ buildCEProgramStable, fetchFromGitHub, lib, python3, bash, ... }:
+{
+  buildCEProgramStable,
+  fetchFromGitHub,
+  lib,
+  python3,
+  bash,
+  ...
+}:
 buildCEProgramStable {
   name = "ceashell";
   src = fetchFromGitHub {
@@ -9,7 +16,10 @@ buildCEProgramStable {
     hash = "sha256-1xysRuoILO9D3mCikRLD5LaLQxj9PUnrngJUJBBIAD4=";
   };
 
-  nativeBuildInputs = [ python3 bash ];
+  nativeBuildInputs = [
+    python3
+    bash
+  ];
   meta = {
     homepage = "https://ceme.tech/t18820";
     description = "CEaShell (pronounced like \"Seashell\") is a new shell for the TI-84 Plus CE.";

@@ -1,4 +1,9 @@
-{ buildCEProgram, fetchFromGitHub, lib, ... }:
+{
+  buildCEProgram,
+  fetchFromGitHub,
+  lib,
+  ...
+}:
 buildCEProgram {
   name = "oiram";
   src = fetchFromGitHub {

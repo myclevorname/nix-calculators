@@ -1,4 +1,13 @@
-{ stdenv, fetchFromGitHub, convbin, convimg, fasmg, lib, llvm-ez80, convfont }:
+{
+  stdenv,
+  fetchFromGitHub,
+  convbin,
+  convimg,
+  fasmg,
+  lib,
+  llvm-ez80,
+  convfont,
+}:
 stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "CE-Programming";
@@ -23,11 +32,20 @@ stdenv.mkDerivation {
   '';
   enableParallelBuilding = true;
 
-  buildInputs = [ convimg convfont llvm-ez80 fasmg convbin ];
+  buildInputs = [
+    convimg
+    convfont
+    llvm-ez80
+    fasmg
+    convbin
+  ];
   meta = {
     description = "Toolchain and libraries for C/C++ programming on the TI-84+ CE calculator series ";
     maintainers = with lib.maintainers; [ clevor ];
     mainProgram = "cedev-config";
-    platforms = [ "x86_64-linux" "x86_64-darwin" ];
+    platforms = [
+      "x86_64-linux"
+      "x86_64-darwin"
+    ];
   };
 }

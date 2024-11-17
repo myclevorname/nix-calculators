@@ -1,18 +1,22 @@
 { tiboyce, stdenv, ... }:
 {
-  src
-, name ? builtins.baseNameOf src
-, namePrefix }:
+  src,
+  name ? builtins.baseNameOf src,
+  namePrefix,
+}:
 # romFile is the file you want to convert
-let builder = stdenv.mkDerivation {
-  name = "tiboyce-romgen";
-  src = tiboyce.src + "/tiboyce-romgen";
-  enableParallelBuilding = true;
-  installPhase = ''
-    mkdir -p $out/bin
-    cp tiboyce-romgen $out/bin
-  '';
-}; in stdenv.mkDerivation {
+let
+  builder = stdenv.mkDerivation {
+    name = "tiboyce-romgen";
+    src = tiboyce.src + "/tiboyce-romgen";
+    enableParallelBuilding = true;
+    installPhase = ''
+      mkdir -p $out/bin
+      cp tiboyce-romgen $out/bin
+    '';
+  };
+in
+stdenv.mkDerivation {
   name = "tiboyce-rom";
   nativeBuildInputs = [ builder ];
   src = src;

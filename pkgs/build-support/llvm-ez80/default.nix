@@ -1,9 +1,19 @@
-{ fasmg, stdenv, cmake, python3, lib, fetchFromGitHub }:
+{
+  fasmg,
+  stdenv,
+  cmake,
+  python3,
+  lib,
+  fetchFromGitHub,
+}:
 stdenv.mkDerivation (finalAttrs: {
   pname = "llvm-ez80";
   version = "0-unstable";
 
-  nativeBuildInputs = [ cmake python3 ];
+  nativeBuildInputs = [
+    cmake
+    python3
+  ];
 
   src = fetchFromGitHub {
     owner = "jacobly0";
@@ -16,18 +26,30 @@ stdenv.mkDerivation (finalAttrs: {
     chmod +w --recursive /build/${finalAttrs.src.name}
   '';
 
-  cmakeFlags = [ "-DCMAKE_BUILD_TYPE=Release" "-DLLVM_ENABLE_PROJECTS=clang" "-DLLVM_TARGETS_TO_BUILD=" "-DLLVM_EXPERIMENTAL_TARGETS_TO_BUILD=Z80" ];
-  buildFlags = [ "llvm-link" "clang" ];
+  cmakeFlags = [
+    "-DCMAKE_BUILD_TYPE=Release"
+    "-DLLVM_ENABLE_PROJECTS=clang"
+    "-DLLVM_TARGETS_TO_BUILD="
+    "-DLLVM_EXPERIMENTAL_TARGETS_TO_BUILD=Z80"
+  ];
+  buildFlags = [
+    "llvm-link"
+    "clang"
+  ];
 
   sourceRoot = finalAttrs.src.name + "/llvm";
 
   doCheck = false;
 
-  installPhase = let binDir = "/build/${finalAttrs.sourceRoot}/build/bin"; in ''
-    mkdir -p $out/bin
-    cp ${binDir}/llvm-link $out/bin/ez80-link
-    cp ${binDir}/clang $out/bin/ez80-clang
-  '';
+  installPhase =
+    let
+      binDir = "/build/${finalAttrs.sourceRoot}/build/bin";
+    in
+    ''
+      mkdir -p $out/bin
+      cp ${binDir}/llvm-link $out/bin/ez80-link
+      cp ${binDir}/clang $out/bin/ez80-clang
+    '';
 
   meta = {
     description = "A compiler and linker for (e)Z80 targets.";
@@ -38,10 +60,10 @@ stdenv.mkDerivation (finalAttrs: {
 
       This does not provide fasmg or any include files to build the programs.
       Please install a toolchain, such as the CE C toolchain.
-   '';
-   homepage = "https://github.com/jacobly0/llvm-project";
-   license = lib.licenses.asl20-llvm;
-   maintainers = with lib.maintainers; [ clevor ];
-   platforms = lib.platforms.unix;
+    '';
+    homepage = "https://github.com/jacobly0/llvm-project";
+    license = lib.licenses.asl20-llvm;
+    maintainers = with lib.maintainers; [ clevor ];
+    platforms = lib.platforms.unix;
   };
 })

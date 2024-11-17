@@ -1,4 +1,9 @@
-{ buildCEProgram, fetchFromGitHub, lib, ... }:
+{
+  buildCEProgram,
+  fetchFromGitHub,
+  lib,
+  ...
+}:
 buildCEProgram {
   name = "dino-run";
   src = fetchFromGitHub {

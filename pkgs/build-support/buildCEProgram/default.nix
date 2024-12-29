@@ -36,8 +36,8 @@ stdenv.mkDerivation (
         ''
           runHook preInstall
           mkdir -p $out/
-          cp *.8x* */*.8x* */*/*.8x* */*/*/*.8x* $out/
-          cp README* readme* license* LICENSE* LISEZMOI* lisezmoi* $out
+          cp $(find -name "*.8x*") $out/
+          cp README* readme* license* LICENSE* LISEZMOI* lisezmoi* $out || true
           runHook postInstall
         '';
     nativeBuildInputs = nativeBuildInputs ++ [

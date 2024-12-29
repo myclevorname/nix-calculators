@@ -16,10 +16,11 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   src = fetchFromGitHub {
-    owner = "jacobly0";
+    # owner = "jacobly0";
+    owner = "CE-Programming";
     repo = "llvm-project";
-    rev = "005a99ce2569373524bd881207aa4a1e98a2b238";
-    hash = "sha256-g9AVQF48HvaOzwm6Fr935+2+Ch+nvUV2afygb3iUflw=";
+    rev = "9257fd038e0730d7b13ae4ee677745670f077817";
+    hash = "sha256-RpTiZ2yJUm1Ekgt9S+2blpewOQ+J1qNhCf71y0kDgis=";
   };
 
   patchPhase = ''

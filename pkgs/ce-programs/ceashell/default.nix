@@ -2,9 +2,7 @@
   buildCEProgramStable,
   fetchFromGitHub,
   lib,
-  python3,
-  bash,
-  ...
+  python3
 }:
 buildCEProgramStable {
   name = "ceashell";
@@ -18,7 +16,6 @@ buildCEProgramStable {
 
   nativeBuildInputs = [
     python3
-    bash
   ];
   meta = {
     homepage = "https://ceme.tech/t18820";

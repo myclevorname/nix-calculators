@@ -1,16 +1,16 @@
-{ callPackage, packages }:
-with packages;
-rec {
+pkgs:
+let inherit (pkgs) callPackage; in {
   convbin = callPackage ./convbin { };
+  convimg = callPackage ./convimg { };
+  convfont = callPackage ./convfont { };
   llvm-ez80 = callPackage ./llvm-ez80 { };
-  ce-toolchain = callPackage ./ce-toolchain { inherit convbin llvm-ez80; };
-  ce-toolchain-stable = callPackage ./ce-toolchain-stable { inherit ce-toolchain; };
-  buildCEProgram = callPackage ./buildCEProgram { inherit convbin llvm-ez80 ce-toolchain; };
+  ce-toolchain = callPackage ./ce-toolchain { };
+  ce-toolchain-stable = callPackage ./ce-toolchain-stable { };
+  buildCEProgram = callPackage ./buildCEProgram { };
   buildCEProgramStable = callPackage ./buildCEProgram {
-    inherit convbin llvm-ez80;
-    ce-toolchain = ce-toolchain-stable;
+    ce-toolchain = pkgs.ce-toolchain-stable;
   };
-  ce-libs = callPackage ./ce-libs { inherit ce-toolchain; };
-  ce-libs-stable = callPackage ./ce-libs { ce-toolchain = ce-toolchain-stable; };
-  buildTIBoyCEROM = callPackage ./buildTIBoyCEROM { tiboyce = packages.CEPrograms.tiboyce; };
+  ce-libs = callPackage ./ce-libs { };
+  ce-libs-stable = callPackage ./ce-libs { ce-toolchain = pkgs.ce-toolchain-stable; };
+  buildTIBoyCEROM = callPackage ./buildTIBoyCEROM { tiboyce = pkgs.CEPrograms.tiboyce; };
 }

@@ -24,7 +24,7 @@
         in
         rec {
           formatter = pkgs.nixfmt-rfc-style;
-          legacyPackages = pkgs.callPackage ./pkgs { packages = self.legacyPackages.${system}; };
+          legacyPackages = import ./pkgs { nixpkgs = pkgs; };
           checks.default = pkgs.linkFarm "all-nix-calculators" (
             (map (name: {
               inherit name;
@@ -37,6 +37,8 @@
               })
               [
                 "convbin"
+                "convfont"
+                "convimg"
                 "llvm-ez80"
                 "ce-toolchain"
                 "ce-toolchain-stable"

@@ -1,8 +1,7 @@
 {
   buildCEProgram,
   fetchFromGitHub,
-  lib,
-  ...
+  lib
 }:
 buildCEProgram {
   name = "dino-run";

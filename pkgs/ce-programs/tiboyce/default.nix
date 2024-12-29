@@ -2,8 +2,7 @@
   buildCEProgram,
   fetchFromGitHub,
   lib,
-  spasm-ng,
-  ...
+  spasm-ng
 }:
 buildCEProgram {
   name = "tiboyce";

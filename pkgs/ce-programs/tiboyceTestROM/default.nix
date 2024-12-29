@@ -1,4 +1,4 @@
-{ buildTIBoyCEROM, ... }:
+{ buildTIBoyCEROM }:
 buildTIBoyCEROM {
   name = "Gameboy Color Test";
   namePrefix = "Gbt";

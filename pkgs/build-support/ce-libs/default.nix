@@ -5,6 +5,7 @@ ce-toolchain.overrideAttrs {
     make libs $makeFlags
   '';
   installPhase = ''
+    rm -r $out
     cp clibs.8xg $out
   '';
 }

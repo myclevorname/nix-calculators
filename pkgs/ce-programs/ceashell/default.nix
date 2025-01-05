@@ -2,18 +2,18 @@
   buildCEProgramStable,
   fetchFromGitHub,
   lib,
-  python3
+  python3,
 }:
 buildCEProgramStable {
-  name = "ceashell";
+  pname = "ceashell";
+  version = "2.0.2-unstable-2024-12-30";
   src = fetchFromGitHub {
     owner = "RoccoLoxPrograms";
     repo = "CEaShell";
     fetchSubmodules = true;
-    rev = "12a1b03a84f15de312558d712bb2cb64570aa880";
-    hash = "sha256-1xysRuoILO9D3mCikRLD5LaLQxj9PUnrngJUJBBIAD4=";
+    rev = "87e2771ea73c5e27038867385b26e9028c643a90";
+    hash = "sha256-CjBgxaQEcMzP8F5KHW2i24NrNCLQz9oCPaGg+XVmhPU=";
   };
-
   nativeBuildInputs = [
     python3
   ];

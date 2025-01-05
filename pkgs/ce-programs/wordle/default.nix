@@ -1,10 +1,11 @@
 {
   buildCEProgram,
   fetchFromGitHub,
-  lib
+  lib,
 }:
 buildCEProgram {
-  name = "wordle";
+  pname = "wordle";
+  version = "1.3-unstable-2023-07-26";
   src = fetchFromGitHub {
     owner = "commandblockguy";
     repo = "wordle";

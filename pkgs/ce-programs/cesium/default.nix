@@ -1,15 +1,16 @@
 {
   buildCEProgram,
   fetchFromGitHub,
-  lib
+  lib,
 }:
 buildCEProgram {
-  name = "cesium";
+  pname = "cesium";
+  version = "3.7.0-unstable-2024-12-07";
   src = fetchFromGitHub {
     owner = "mateoconlechuga";
     repo = "cesium";
-    rev = "91e1e647f87644d5981e6414bccc69fb898971b6";
-    hash = "sha256-+Cn44ukYvKixRw9i3DOCBj+eSmMROm9awqfF4nyE/fM=";
+    rev = "d965c32f6eb8611e00e4af5af20a1b96796063bc";
+    hash = "sha256-jS3nO+VjJhWYpfq2yVoB6H4o49f5WHgjl3lO3NF8UUg=";
   };
   postInstall = ''
     cp -r creating_icons.md screenshots $out

@@ -9,15 +9,16 @@
   convfont,
 }:
 stdenv.mkDerivation {
+  pname = "ce-toolchain";
+  version = "nightly-unstable-2025-01-05";
   src = fetchFromGitHub {
     owner = "CE-Programming";
     repo = "toolchain";
     fetchSubmodules = true;
-    rev = "d1f6d81effb6f202f529e0bd6013418e3614289e";
-    hash = "sha256-bM/JgiknEQgw8Kjb6Z8ZFf/q8/qq8W1t6ue7k9WAv54=";
+    rev = "cd97828b078499b2b13f1da8dc01ae06f9285c4e";
+    hash = "sha256-vw2hG2WqTDEAmpzVuoyaozTsezHUuEyXIe4vACoGlJI=";
   };
   patches = [ ./edit-makefiles.patch ];
-  name = "ce-toolchain";
   postPatch = ''
     mkdir -p $out/bin
     ln -s ${convbin}/bin/convbin $out/bin

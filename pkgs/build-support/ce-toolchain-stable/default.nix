@@ -1,6 +1,7 @@
 { ce-toolchain, fetchFromGitHub }:
 ce-toolchain.overrideAttrs {
-  name = "ce-toolchain-12.1";
+  pname = "ce-toolchain";
+  version = "12.1";
   src = fetchFromGitHub {
     owner = "CE-Programming";
     repo = "toolchain";

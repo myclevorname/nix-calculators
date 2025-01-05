@@ -1,10 +1,11 @@
 {
   buildCEProgram,
   fetchFromGitHub,
-  lib
+  lib,
 }:
 buildCEProgram {
-  name = "hexaedit";
+  pname = "hexaedit";
+  version = "0-unstable-2024-05-29";
   src = fetchFromGitHub {
     owner = "captain-calc";
     repo = "HexaEdit-CE";

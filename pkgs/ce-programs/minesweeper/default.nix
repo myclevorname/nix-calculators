@@ -1,10 +1,11 @@
 {
   buildCEProgram,
   fetchFromGitHub,
-  lib
+  lib,
 }:
 buildCEProgram {
-  name = "minesweeper";
+  pname = "minesweeper";
+  version = "1.4b-unstable-2024-06-16";
   src = fetchFromGitHub {
     owner = "merthsoft";
     repo = "minesweeper-84-ce";

@@ -1,10 +1,11 @@
 {
   buildCEProgram,
   fetchFromGitHub,
-  lib
+  lib,
 }:
 buildCEProgram {
-  name = "dinopuzz";
+  pname = "dinopuzz";
+  version = "0-unstable-2024-06-20";
   src = fetchFromGitHub {
     owner = "merthsoft";
     repo = "dinopuzz-84-ce";

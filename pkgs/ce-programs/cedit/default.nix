@@ -1,10 +1,11 @@
 {
   buildCEProgram,
   fetchFromGitHub,
-  lib
+  lib,
 }:
 buildCEProgram {
-  name = "CEdit";
+  pname = "CEdit";
+  version = "release.1-unstable-2023-05-04";
   src = fetchFromGitHub {
     owner = "Michael0x18";
     repo = "CEdit";
@@ -14,7 +15,6 @@ buildCEProgram {
   postInstall = ''
     cp cedit.pdf $out
   '';
-
   meta = {
     homepage = "https://www.cemetech.net/forum/viewtopic.php?t=17772";
     description = "TI 84 plus CE text editor";

@@ -1,10 +1,11 @@
 {
   buildCEProgram,
   fetchFromGitHub,
-  lib
+  lib,
 }:
 buildCEProgram {
-  name = "gimme-5";
+  pname = "gimme-5";
+  version = "0-unstable-2024-05-29";
   src = fetchFromGitHub {
     owner = "captain-calc";
     repo = "Gimme-5";

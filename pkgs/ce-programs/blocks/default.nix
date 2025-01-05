@@ -1,10 +1,11 @@
 {
   buildCEProgram,
   fetchFromGitHub,
-  lib
+  lib,
 }:
 buildCEProgram {
-  name = "Blocks";
+  pname = "Blocks";
+  version = "0-unstable-2023-08-28";
   src = fetchFromGitHub {
     owner = "TheScienceElf";
     repo = "Blocks-TI-84";

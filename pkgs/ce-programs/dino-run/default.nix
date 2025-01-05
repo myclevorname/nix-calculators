@@ -1,10 +1,11 @@
 {
   buildCEProgram,
   fetchFromGitHub,
-  lib
+  lib,
 }:
 buildCEProgram {
-  name = "dino-run";
+  pname = "dino-run";
+  version = "1.3-unstable-2023-06-12";
   src = fetchFromGitHub {
     owner = "commandblockguy";
     repo = "dino-run-ce";
@@ -12,7 +13,6 @@ buildCEProgram {
     hash = "sha256-eT3vG7xf7mrssNixBjEzVxXxQQsCARpxMUvFaN4D0xQ=";
     fetchSubmodules = true;
   };
-
   meta = {
     description = "A clone of Google Chrome's dinosaur game for the TI-84+CE";
     license = with lib.licenses; [ mit ];

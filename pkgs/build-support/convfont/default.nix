@@ -1,4 +1,9 @@
-{ prevPkgs, ce-toolchain, fetchFromGitHub, lib }:
+{
+  prevPkgs,
+  ce-toolchain,
+  fetchFromGitHub,
+  lib,
+}:
 prevPkgs.convfont.overrideAttrs {
   src = ce-toolchain.src + "/tools/convfont";
   name = "convfont";

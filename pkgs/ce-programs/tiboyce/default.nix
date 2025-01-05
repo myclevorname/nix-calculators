@@ -2,10 +2,11 @@
   buildCEProgram,
   fetchFromGitHub,
   lib,
-  spasm-ng
+  spasm-ng,
 }:
 buildCEProgram {
-  name = "tiboyce";
+  pname = "tiboyce";
+  version = "0.3.0-unstable-2024-07-30";
   src = fetchFromGitHub {
     owner = "calc84maniac";
     repo = "tiboyce";

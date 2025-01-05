@@ -1,10 +1,11 @@
 {
   buildCEProgram,
   fetchFromGitHub,
-  lib
+  lib,
 }:
 buildCEProgram {
-  name = "oiram";
+  pname = "oiram";
+  version = "0-unstable-2022-06-16";
   src = fetchFromGitHub {
     owner = "mateoconlechuga";
     repo = "oiram";

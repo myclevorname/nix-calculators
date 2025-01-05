@@ -1,5 +1,8 @@
 pkgs:
-let inherit (pkgs) callPackage; in {
+let
+  inherit (pkgs) callPackage;
+in
+{
   convbin = callPackage ./convbin { };
   convimg = callPackage ./convimg { };
   convfont = callPackage ./convfont { };

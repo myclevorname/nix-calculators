@@ -1,7 +1,9 @@
-{ buildTIBoyCEROM }:
+{ buildTIBoyCEROM, fetchurl }:
 buildTIBoyCEROM {
-  name = "Gameboy Color Test";
+  name = "tiboyce-converter-test";
   namePrefix = "Gbt";
-  # The source is https://benjelter.itch.io/game-boy-color-test
-  src = ./ColorTest.gbc;
+  src = fetchurl {
+    url = "https://hh3.gbdev.io/static/database-gb/entries/dots/dots.gbc";
+    hash = "sha256-e42GKY9x2zS7tgUmj5HV319hw8DAWSD44YFyrk74/wc=";
+  };
 }

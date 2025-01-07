@@ -23,16 +23,6 @@
           pkgs = nixpkgs.legacyPackages.${system};
         in
         rec {
-          templates = {
-            hello-world = {
-              path = ./templates/hello-world;
-              description = "A simple Hello World program";
-            };
-            default = {
-              path = ./templates/bare-bones;
-              description = "Add flakes to an existing program";
-            };
-          };
           formatter = pkgs.nixfmt-rfc-style;
           legacyPackages = import ./pkgs { nixpkgs = pkgs; };
           checks.default = pkgs.linkFarm "all-nix-calculators" (
@@ -54,9 +44,24 @@
                 "ce-toolchain-stable"
                 "ce-libs"
                 "ce-libs-stable"
+                "tivars"
+                "puzpy"
               ]
             )
           );
         }
-      );
+      )
+    // {
+
+      templates = {
+        hello-world = {
+          path = ./templates/hello-world;
+          description = "A simple Hello World program";
+        };
+        default = {
+          path = ./templates/bare-bones;
+          description = "Add flakes to an existing program";
+        };
+      };
+    };
 }

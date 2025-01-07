@@ -1,6 +1,6 @@
 pkgs:
 let
-  inherit (pkgs) callPackage;
+  inherit (pkgs) callPackage python3Packages;
 in
 {
   convbin = callPackage ./convbin { };
@@ -13,7 +13,10 @@ in
   buildCEProgramStable = callPackage ./buildCEProgram {
     ce-toolchain = pkgs.ce-toolchain-stable;
   };
+  buildCrossbunPack = callPackage ./buildCrossbunPack { };
+  buildTIBoyCEROM = callPackage ./buildTIBoyCEROM { tiboyce = pkgs.CEPrograms.tiboyce; };
   ce-libs = callPackage ./ce-libs { };
   ce-libs-stable = callPackage ./ce-libs { ce-toolchain = pkgs.ce-toolchain-stable; };
-  buildTIBoyCEROM = callPackage ./buildTIBoyCEROM { tiboyce = pkgs.CEPrograms.tiboyce; };
+  puzpy = python3Packages.callPackage ./puzpy { };
+  tivars = python3Packages.callPackage ./tivars { };
 }

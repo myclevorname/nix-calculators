@@ -7,6 +7,7 @@ in
   convimg = callPackage ./convimg { };
   convfont = callPackage ./convfont { };
   llvm-ez80 = callPackage ./llvm-ez80 { };
+  gcc4ti = callPackage ./gcc4ti { };
   ce-toolchain = callPackage ./ce-toolchain { };
   ce-toolchain-stable = callPackage ./ce-toolchain-stable { };
   buildCEProgram = callPackage ./buildCEProgram { };

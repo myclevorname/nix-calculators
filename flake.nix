@@ -6,6 +6,12 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
+  nixConfig = {
+    # Adapted From: https://github.com/divnix/digga/blob/main/examples/devos/flake.nix#L4
+    extra-substituters = "https://cache.nixos.org https://ce-programs.cachix.org";
+    extra-trusted-public-keys = "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= ce-programs.cachix.org-1:ZwW4booZjjGMYrr2uic5LFAo+TpMybhcfI/WrmKohiw=";
+  };
+
   outputs =
     {
       nixpkgs,

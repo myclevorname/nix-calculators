@@ -6,13 +6,13 @@
 }:
 buildCEProgramStable {
   pname = "ceashell";
-  version = "2.0.2-unstable-2024-12-30";
+  version = "2.0.2-unstable-2025-01-10";
   src = fetchFromGitHub {
     owner = "RoccoLoxPrograms";
     repo = "CEaShell";
     fetchSubmodules = true;
-    rev = "87e2771ea73c5e27038867385b26e9028c643a90";
-    hash = "sha256-CjBgxaQEcMzP8F5KHW2i24NrNCLQz9oCPaGg+XVmhPU=";
+    rev = "faca8310419837ef906b7e982a3f64a63c141df8";
+    hash = "sha256-njN10rb/paEQrKnhDihl1u+sl9EJsgWmkYT6+IPc0zE=";
   };
   nativeBuildInputs = [
     python3

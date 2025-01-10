@@ -6,12 +6,12 @@
 }:
 buildCEProgram {
   pname = "ez80-studio";
-  version = "1.0-unstable-2024-12-30";
+  version = "1.0-unstable-2025-01-10";
   src = fetchFromGitHub {
     owner = "EzCE";
     repo = "ez80-studio";
-    rev = "9412c0fbdf3f6d08cef24027bb2f41bc19d5c942";
-    hash = "sha256-m8n991nS5Qn3S+V2DF5v0yg3C/SZrTfVBqSwGlWp2a4=";
+    rev = "e0b45c03aab41351f4cc6da053be0988c36810ac";
+    hash = "sha256-aqwuCi9jzlCvSVF2lrEfFDza05Z+ix7GLehsLnGQUb8=";
   };
   patchPhase = ''
     runHook prePatch

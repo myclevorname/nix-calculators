@@ -4,6 +4,7 @@
       url = "github:myclevorname/nix-calculators";
       inputs.flake-utils.follows = "flake-utils";
     };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -11,6 +12,7 @@
     {
       self,
       toolchain,
+      nixpkgs,
       flake-utils,
     }:
     flake-utils.lib.eachSystem [ "x86_64-linux" "x86_64-darwin" ] (

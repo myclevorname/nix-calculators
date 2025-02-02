@@ -29,6 +29,10 @@
           pkgs = nixpkgs.legacyPackages.${system};
         in
         rec {
+          devShells.default = legacyPackages.buildCEProgram {
+            name = "nix-shell";
+            src = null;
+          };
           formatter = pkgs.nixfmt-rfc-style;
           legacyPackages = import ./pkgs { nixpkgs = pkgs; };
           checks.default = pkgs.linkFarm "all-nix-calculators" (

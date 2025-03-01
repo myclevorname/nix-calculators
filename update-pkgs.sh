@@ -7,10 +7,11 @@ for i in $(ls pkgs/ce-programs | grep -v "tiboyceTestROM" | grep -v "crossbunTes
 	nix-update legacyPackages.x86_64-linux.CEPrograms.$i --version=branch --flake &
 done
 
-for i in ce-toolchain llvm-ez80 gcc4ti; do
+for i in ce-toolchain gcc4ti; do
 	nix-update legacyPackages.x86_64-linux.$i --version=branch --flake &
 done
 nix-update legacyPackages.x86_64-linux.ce-toolchain-stable --flake &
+nix-update legacyPackages.x86_64-linux.llvm-ez80 --version=rebase-v15 --flake &
 
 wait -f
 

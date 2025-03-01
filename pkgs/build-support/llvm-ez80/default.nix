@@ -8,7 +8,7 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "llvm-ez80";
-  version = "rebase-v15";
+  version = "rebase-v19";
 
   nativeBuildInputs = [
     cmake

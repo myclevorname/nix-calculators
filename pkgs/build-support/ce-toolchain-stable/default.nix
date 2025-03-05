@@ -2,6 +2,7 @@
 ce-toolchain.overrideAttrs {
   pname = "ce-toolchain";
   version = "12.1";
+  patches = [ ./edit-makefiles.patch ];
   src = fetchFromGitHub {
     owner = "CE-Programming";
     repo = "toolchain";

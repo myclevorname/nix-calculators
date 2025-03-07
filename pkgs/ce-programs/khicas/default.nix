@@ -4,6 +4,7 @@
   fetchFromGitHub,
   lib,
   python3,
+  language ? null,
 }:
 let
   khicasSrc = fetchFromGitHub {
@@ -20,7 +21,7 @@ let
   mkDerivation = buildCEProgram.override { ce-toolchain = toolchain; };
 in
 mkDerivation {
-  pname = "khicas";
+  pname = "khicas" + (if builtins.isNull language then "" else "-${language}");
   version = "0-unstable-2025-03-06";
   src = khicasSrc;
   patchPhase = ''
@@ -28,17 +29,18 @@ mkDerivation {
     mkdir -p shared/ti
     mv app_tools/INST.8xp shared/ti
     patchShebangs $(find -executable -type f)
-    sed --in-place 's/\-i\.\.\/arTIfiCE\.8xv //' bundle84
+    sed --in-place 's/\-i\.\.\/arTIfiCE\.8xv //' bundle*
   '';
   preInstall = ''
-    mv shared/ti/app/khicas*.b8* .
+    mv shared/ti/app/*.b8* .
     rm -rf shared/ti/app
   '';
   postInstall = ''
-    cp install* $out
+    cp install* *.b8* $out
+    cp khicas.b8* shared/ti/DEMO.8ek $out/khicas.8ek
   '';
   buildPhase = ''
-    ./mkappen
+    ./mkapp${if builtins.isNull language then "en" else language}
   '';
   nativeBuildInputs = [ python3 ];
 }

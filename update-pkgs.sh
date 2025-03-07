@@ -10,4 +10,4 @@ for i in ce-toolchain llvm-ez80 gcc4ti; do
 done
 nix-update legacyPackages.x86_64-linux.ce-toolchain-stable --flake || exit 1
 
-NIXPKGS_ALLOW_UNFREE=1 nix build .#checks.x86_64-linux.default --extra-experimental-features "nix-command flakes" --impure
+nix build .#checks.x86_64-linux.default --extra-experimental-features "nix-command flakes"

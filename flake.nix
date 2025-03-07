@@ -38,7 +38,7 @@
           checks.default = pkgs.linkFarm "all-nix-calculators" (
             (map (name: {
               inherit name;
-              path = legacyPackages.CEPrograms.${name};
+              path = legacyPackages.CEPrograms.${name}.overrideAttrs { meta.unfree = false; };
             }) (builtins.attrNames legacyPackages.CEPrograms))
             ++ (map
               (name: {

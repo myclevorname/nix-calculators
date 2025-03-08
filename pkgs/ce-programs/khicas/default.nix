@@ -1,29 +1,18 @@
 {
   buildCEProgram,
-  ce-toolchain,
   fetchFromGitHub,
-  lib,
   python3,
   language ? null,
 }:
-let
-  khicasSrc = fetchFromGitHub {
+buildCEProgram {
+  pname = "khicas" + (if builtins.isNull language then "" else "-${language}");
+  version = "0-unstable-2025-03-08";
+  src = fetchFromGitHub {
     owner = "KhiCAS";
     repo = "ti-ce";
-    rev = "fd196ad1ec0a0c313d476318f50da29758bcb58f";
-    hash = "sha256-KZ8k3dnXB5GVEIw+H3OAAa0QdxOSSYHRZn45sp6rjYY=";
+    rev = "600a69049fc34649aa81732afde554d548621a90";
+    hash = "sha256-wnZOWFyGjb5EeU4MFp5K405VGN0w+4olR2ZZMdxv5S8=";
   };
-  toolchain = ce-toolchain.overrideAttrs {
-    prePatch = ''
-      cp ${khicasSrc + "/allocator_standard.c"} src/libc
-    '';
-  };
-  mkDerivation = buildCEProgram.override { ce-toolchain = toolchain; };
-in
-mkDerivation {
-  pname = "khicas" + (if builtins.isNull language then "" else "-${language}");
-  version = "0-unstable-2025-03-06";
-  src = khicasSrc;
   patchPhase = ''
     rm -rf shared
     mkdir -p shared/ti

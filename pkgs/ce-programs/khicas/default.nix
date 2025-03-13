@@ -6,12 +6,12 @@
 }:
 buildCEProgram {
   pname = "khicas" + (if builtins.isNull language then "" else "-${language}");
-  version = "0-unstable-2025-03-09";
+  version = "0-unstable-2025-03-13";
   src = fetchFromGitHub {
     owner = "KhiCAS";
     repo = "ti-ce";
-    rev = "c27cdc322b0bbafa2a5ab3514f642e41643b7f95";
-    hash = "sha256-wqUpA0qHeVsDtxL/wE8eYQAdK9pNETgVzI7/AlJN6ys=";
+    rev = "580cf791fe58b89da55784e20c01ad7437f02e16";
+    hash = "sha256-UAQMCH8L0hsm717NjpGFBDEQaJbuhvdxUsA8BV21ix4=";
   };
   patchPhase = ''
     rm -rf shared

@@ -7,12 +7,12 @@
 
 gcc13Stdenv.mkDerivation (finalAttrs: {
   pname = "gcc4ti";
-  version = "0-unstable-2020-10-07";
+  version = "0-unstable-2025-03-14";
   src = fetchFromGitHub {
     owner = "debrouxl";
     repo = "gcc4ti";
-    rev = "30c611b1287b4d6b0296102dcab9ef593778a6c2";
-    hash = "sha256-VrEg2HtVTkgJaN69ECcFEFDodnV077KLDN5iz+O+neU=";
+    rev = "4cb128b04a3776b5889ba700428957d87de80601";
+    hash = "sha256-yIP6Oo3Fmtye9B4v5vuskkKwCZCGqg01ZBeuFuWy0yo=";
   };
   nativeBuildInputs = [ makeWrapper ];
   sourceRoot = finalAttrs.src.name + "/trunk/tigcc-linux";

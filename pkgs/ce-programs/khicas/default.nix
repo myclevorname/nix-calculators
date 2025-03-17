@@ -10,8 +10,8 @@ buildCEProgram {
   src = fetchFromGitHub {
     owner = "KhiCAS";
     repo = "ti-ce";
-    rev = "2779379f22612b57d8a63da16c703ed516f7d976";
-    hash = "sha256-zdxrxOwgL/DwpG5JODCeTC8GhnC5xj7aWWAhbyS6sFY=";
+    rev = "54e835126796ca20eab8f322b88f46ec7e5320fe";
+    hash = "sha256-XIbLldN7hmPFX135JkZuz7mgZQnwOEPnpPMtNGDDNl4=";
   };
   patchPhase = ''
     rm -rf shared

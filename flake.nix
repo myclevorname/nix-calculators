@@ -40,25 +40,6 @@
               inherit name;
               path = legacyPackages.CEPrograms.${name}.overrideAttrs { meta.unfree = false; };
             }) (builtins.attrNames legacyPackages.CEPrograms))
-            ++ (map
-              (name: {
-                inherit name;
-                path = legacyPackages.${name};
-              })
-              [
-                "convbin"
-                "convfont"
-                "convimg"
-                "llvm-ez80"
-                "ce-toolchain"
-                "ce-toolchain-stable"
-                "ce-libs"
-                "ce-libs-stable"
-                "tivars"
-                "puzpy"
-                "gcc4ti"
-              ]
-            )
           );
         }
       )

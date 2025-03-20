@@ -1,5 +1,5 @@
 diff --git a/makefile b/makefile
-index b26ee5e6..d1e124e0 100644
+index 3dfde62a..c4f70142 100644
 --- a/makefile
 +++ b/makefile
 @@ -14,14 +14,14 @@
@@ -14,7 +14,7 @@ index b26ee5e6..d1e124e0 100644
  include $(CURDIR)/src/common.mk
  
  LIBS := libload graphx fontlibc keypadc fileioc usbdrvce srldrvce msddrvce fatdrvce
- SRCS := ce crt libc libcxx softfloat
+ SRCS := ce crt libc libcxx
 -TOOLS := fasmg convbin convimg convfont cedev-config
 +TOOLS := fasmg cedev-config
  

@@ -11,14 +11,18 @@
             map (m: ./ce-programs/. + "/${m}") (
               builtins.attrNames (builtins.readDir (builtins.filterSource (path: type: type == "directory") x))
             );
-        in
+        in rec
         {
-          CEPrograms = builtins.listToAttrs (
+          CEPrograms = (builtins.listToAttrs (
             map (path: {
               name = builtins.baseNameOf path;
               value = final.callPackage path { };
             }) (getDirs ./ce-programs)
-          );
+          )) // {
+            khicas-en = CEPrograms.khicas.override { language = "en"; };
+            khicas-fr = CEPrograms.khicas.override { language = "fr"; };
+            khicas-l2 = CEPrograms.khicas.override { language = "l2"; };
+          };
         }
       );
   in

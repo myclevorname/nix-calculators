@@ -4,7 +4,7 @@
   lib,
 }:
 buildCEProgram {
-  pname = "wordle";
+  pname = "crossbun";
   version = "1.0-unstable-2025-01-06";
   src = fetchFromGitHub {
     owner = "commandblockguy";

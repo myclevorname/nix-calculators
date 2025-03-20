@@ -25,21 +25,13 @@ stdenv.mkDerivation (
         ''
           runHook preBuild
           make gfx $makeFlags || true
-          make $makeFlags
+          (make obj/icon.src $makeFlags ; make obj/lto.src $makeFlags) || make $makeFlags
           runHook postBuild
         '';
     enableParallelBuilding = true;
-    installPhase =
-      if installPhase != null then
-        installPhase
-      else
-        ''
-          runHook preInstall
-          mkdir -p $out/
-          cp $(find -name "*.8x*") $out/
-          cp README* readme* license* LICENSE* LISEZMOI* lisezmoi* $out || true
-          runHook postInstall
-        '';
+    installPhase = ''
+      for i in **/*.src **/*.asm **/*.inc **/*.c **/*.h **/*.cpp **/*.hpp *akefile*; do mkdir -p $out/$(dirname $i); cp $i $out/$(dirname $i); done
+    '';
     nativeBuildInputs = nativeBuildInputs ++ [
       ce-toolchain
       convbin

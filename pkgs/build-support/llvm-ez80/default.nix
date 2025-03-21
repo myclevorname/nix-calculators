@@ -65,7 +65,7 @@ stdenv.mkDerivation (finalAttrs: {
       Please install a toolchain, such as the CE C toolchain.
     '';
     homepage = "https://github.com/jacobly0/llvm-project";
-    license = lib.licenses.asl20-llvm;
+    license = with lib.licenses; [ asl20 llvm-exception ];
     maintainers = with lib.maintainers; [ clevor ];
     platforms = lib.platforms.unix;
   };

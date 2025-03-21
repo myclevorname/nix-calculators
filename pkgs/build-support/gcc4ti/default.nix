@@ -39,6 +39,7 @@ gcc13Stdenv.mkDerivation (finalAttrs: {
   '';
   fixupPhase = ''
     runHook preFixup
+    rm -r $out/doc
     for i in $(ls $out/bin);
     do
       wrapProgram $out/bin/$i --set TIGCC $out

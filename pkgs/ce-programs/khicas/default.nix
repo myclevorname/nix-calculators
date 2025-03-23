@@ -6,11 +6,11 @@
 }:
 buildCEProgram {
   pname = "khicas" + (if builtins.isNull language then "" else "-${language}");
-  version = "0-unstable-2025-03-19";
+  version = "0-unstable-2025-03-23";
   src = fetchFromGitHub {
     owner = "KhiCAS";
     repo = "ti-ce";
-    rev = "f14cad6057e8ed7dc4357fe532f19ba091e2318c";
+    rev = "f0998a5416f65f94fd41f0b92fa5bdba37af2a19";
     hash = "sha256-LnZ0wMbsIllajGln919WOqDMVvax/RKt1z03hHsNPPc=";
   };
   patchPhase = ''

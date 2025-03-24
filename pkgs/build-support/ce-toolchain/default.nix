@@ -16,7 +16,7 @@ stdenv.mkDerivation {
     repo = "toolchain";
     fetchSubmodules = true;
     rev = "5902fec7c47950b36390d35851c30235f04999ba";
-    hash = "sha256-N8buym0U6FjR2+dLfzoQn2RXOuN38ZSiPuMGRVnliSE=";
+    hash = "sha256-4z2bPrz5xY4Emo+UZISaQ6JCZ1oyzm5w61Gf96ivU84=";
   };
   patches = [ ./edit-makefiles.patch ];
   postPatch = ''

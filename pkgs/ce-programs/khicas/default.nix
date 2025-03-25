@@ -6,12 +6,12 @@
 }:
 buildCEProgram {
   pname = "khicas" + (if builtins.isNull language then "" else "-${language}");
-  version = "0-unstable-2025-03-23";
+  version = "0-unstable-2025-03-24";
   src = fetchFromGitHub {
     owner = "KhiCAS";
     repo = "ti-ce";
-    rev = "1bd33571f60e9d5b30757618b6047a0d81f3107c";
-    hash = "sha256-TrGcU5t5mMCl3hcKacfXoG/NDge68Oq0gQLt/pgSw1s=";
+    rev = "4f9d3625a94436f0e3a47b676024f32a677dcf49";
+    hash = "sha256-eqZin0IdGnTL5VJG0HMKDkO8SBU9xc4fI4F2x0MKxVw=";
     fetchSubmodules = true;
   };
   patchPhase = ''

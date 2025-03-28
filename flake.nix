@@ -39,7 +39,7 @@
             (map (name: {
               inherit name;
               path = legacyPackages.CEPrograms.${name}.overrideAttrs { meta.unfree = false; };
-            }) (builtins.attrNames legacyPackages.CEPrograms))
+            }) (builtins.attrNames (pkgs.lib.filterAttrs (_: x: !x.meta.broken) legacyPackages.CEPrograms)))
             ++ (map
               (name: {
                 inherit name;

@@ -6,7 +6,6 @@
   python3,
   python3Packages,
   stdenv,
-  tivars,
 }:
 {
   description,

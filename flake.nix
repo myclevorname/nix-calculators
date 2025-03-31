@@ -54,7 +54,6 @@
                 "ce-toolchain-stable"
                 "ce-libs"
                 "ce-libs-stable"
-                "tivars"
                 "puzpy"
                 "gcc4ti"
               ]

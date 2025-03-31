@@ -19,5 +19,4 @@ in
   ce-libs = callPackage ./ce-libs { };
   ce-libs-stable = callPackage ./ce-libs { ce-toolchain = pkgs.ce-toolchain-stable; };
   puzpy = python3Packages.callPackage ./puzpy { };
-  tivars = python3Packages.callPackage ./tivars { };
 }

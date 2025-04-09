@@ -4,13 +4,13 @@
 set -e
 
 for i in $(ls pkgs/ce-programs | grep -v "tiboyceTestROM" | grep -v "crossbunTestPack"); do
-	nix-update legacyPackages.x86_64-linux.CEPrograms.$i --version=branch --flake &
+	nix-update legacyPackages.x86_64-linux.CEPrograms.$i --version=branch --flake
 done
 
 for i in ce-toolchain llvm-ez80 gcc4ti; do
-	nix-update legacyPackages.x86_64-linux.$i --version=branch --flake &
+	nix-update legacyPackages.x86_64-linux.$i --version=branch --flake
 done
-nix-update legacyPackages.x86_64-linux.ce-toolchain-stable --flake &
+nix-update legacyPackages.x86_64-linux.ce-toolchain-stable --flake
 
 wait -f
 

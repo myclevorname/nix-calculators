@@ -1,17 +1,6 @@
-#! /usr/bin/env nix-shell
-#! nix-shell -i bash -p bash nix-update
+#! /usr/bin/env bash
 
 set -e
 
-for i in $(ls pkgs/ce-programs | grep -v "tiboyceTestROM" | grep -v "crossbunTestPack"); do
-	nix-update legacyPackages.x86_64-linux.CEPrograms.$i --version=branch --flake
-done
-
-for i in ce-toolchain llvm-ez80 gcc4ti; do
-	nix-update legacyPackages.x86_64-linux.$i --version=branch --flake
-done
-nix-update legacyPackages.x86_64-linux.ce-toolchain-stable --flake
-
-wait -f
-
-nix build .#checks.x86_64-linux.default --extra-experimental-features "nix-command flakes"
+nix run github:NixOS/nixpkgs/c8cd81426f45942bb2906d5ed2fe21d2f19d95b7#nix-update -- \
+	legacyPackages.x86_64-linux.ce-toolchain --version=branch --flake

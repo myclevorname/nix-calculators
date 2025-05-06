@@ -5,12 +5,12 @@
 }:
 buildCEProgram {
   pname = "petscii-robots";
-  version = "0-unstable-2025-02-22";
+  version = "0-unstable-2025-04-26";
   src = fetchFromGitHub {
     owner = "nitinseshadri";
     repo = "ce-robots";
-    rev = "30f139bf86bb28635c637fbeedd0f3ba6ffd9f64";
-    hash = "sha256-du9+/aKMaj7pmPKNd85eQSFC2yn0rhSjoMenfLqOPU8=";
+    rev = "7989fd88cab219173d22f8d762dff715d8ad0222";
+    hash = "sha256-edlCrOB/ygDloVnhtrXxOJH2QBSDut8TLu2uYsDeuAs=";
     fetchSubmodules = true;
   };
   meta = {

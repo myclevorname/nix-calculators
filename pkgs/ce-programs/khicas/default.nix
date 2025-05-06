@@ -6,12 +6,12 @@
 }:
 buildCEProgram {
   pname = "khicas" + (if builtins.isNull language then "" else "-${language}");
-  version = "0-unstable-2025-03-26";
+  version = "nightly-unstable-2025-05-03";
   src = fetchFromGitHub {
     owner = "KhiCAS";
     repo = "ti-ce";
-    rev = "539efa052e8af41cf7145a892a543b2cca172aaf";
-    hash = "sha256-3Sl7R7F5BriT7PiHx73sygykuZE4RhTj4OqYRYXhXRk=";
+    rev = "f40e897ea3ba1947dd2e3b990c655205bf85cd33";
+    hash = "sha256-VqLCg+4NAjy/0m7/nZRCjohtX3tLKFa/e2p0ba8Hvn8=";
     fetchSubmodules = true;
   };
   patchPhase = ''
@@ -33,5 +33,5 @@ buildCEProgram {
     ./mkapp${if builtins.isNull language then "en" else language}
   '';
   nativeBuildInputs = [ python3 ];
-  meta.broken = true;
+  # meta.broken = true;
 }

@@ -17,6 +17,5 @@ buildCEProgram {
   meta = {
     description = "Programmer's Calculator for the TI-84 Plus CE";
     license = with lib.licenses; [ gpl3Only ];
-    maintainers = with lib.maintainers; [ clevor ];
   };
 }

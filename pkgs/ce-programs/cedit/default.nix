@@ -19,6 +19,5 @@ buildCEProgram {
     homepage = "https://www.cemetech.net/forum/viewtopic.php?t=17772";
     description = "TI 84 plus CE text editor";
     license = with lib.licenses; [ ];
-    maintainers = with lib.maintainers; [ clevor ];
   };
 }

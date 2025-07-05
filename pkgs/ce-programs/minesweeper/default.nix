@@ -15,6 +15,5 @@ buildCEProgram {
   meta = {
     description = "Minesweeper for the TI-84+CE.";
     license = with lib.licenses; [ unlicense ];
-    maintainers = with lib.maintainers; [ clevor ];
   };
 }

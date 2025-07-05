@@ -15,6 +15,5 @@ buildCEProgram {
   meta = {
     description = "Celeste Classic port for the TI-84+CE and TI-83PCE graphing calculators";
     license = with lib.licenses; [ mit ];
-    maintainers = with lib.maintainers; [ clevor ];
   };
 }

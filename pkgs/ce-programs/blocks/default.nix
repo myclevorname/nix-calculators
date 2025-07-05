@@ -25,6 +25,5 @@ buildCEProgram {
     homepage = "https://github.com/TheScienceElf/Blocks-TI-84";
     description = "A Minecraft-esque game for the TI 84 CE calculator.";
     license = with lib.licenses; [ mit ];
-    maintainers = with lib.maintainers; [ clevor ];
   };
 }

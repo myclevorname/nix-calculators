@@ -15,6 +15,5 @@ buildCEProgram {
   meta = {
     description = "Clone of Flow Free for the TI-84 Plus CE";
     license = with lib.licenses; [ gpl3Only ];
-    maintainers = with lib.maintainers; [ clevor ];
   };
 }

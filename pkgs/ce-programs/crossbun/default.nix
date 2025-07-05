@@ -15,6 +15,5 @@ buildCEProgram {
   meta = {
     description = "Crossword program for the TI-84 Plus CE graphing calculator";
     license = with lib.licenses; [ mit ];
-    maintainers = with lib.maintainers; [ clevor ];
   };
 }

@@ -19,6 +19,5 @@ buildCEProgram {
     homepage = "https://github.com/merthsoft/dinopuzz-84-ce";
     description = "Dino Puzzle for the 84+CE";
     license = with lib.licenses; [ wtfpl ];
-    maintainers = with lib.maintainers; [ clevor ];
   };
 }

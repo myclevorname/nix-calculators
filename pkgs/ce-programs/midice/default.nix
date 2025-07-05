@@ -15,6 +15,5 @@ buildCEProgram {
   meta = {
     description = "Use a TI-84 Plus CE as a USB MIDI keyboard / controller";
     license = with lib.licenses; [ lgpl3Only ];
-    maintainers = with lib.maintainers; [ clevor ];
   };
 }

@@ -16,6 +16,5 @@ buildCEProgram {
     homepage = "https://www.cemetech.net/forum/viewtopic.php?t=18412";
     description = "A Wordle-inspired word guessing game for the TI-84 Plus CE";
     license = with lib.licenses; [ ];
-    maintainers = with lib.maintainers; [ clevor ];
   };
 }

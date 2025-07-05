@@ -8,7 +8,7 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "llvm-ez80";
-  version = "nightly-unstable-2025-04-29";
+  version = "nightly-unstable-2025-06-21";
 
   nativeBuildInputs = [
     cmake
@@ -19,8 +19,8 @@ stdenv.mkDerivation (finalAttrs: {
     # owner = "jacobly0";
     owner = "CE-Programming";
     repo = "llvm-project";
-    rev = "d2b40508479e5c907de0d36acc002e110b420555";
-    hash = "sha256-d9bUaocfs9XeWVc+f3sy4zZY4dFMv5LgW1uKPHY/tuo=";
+    rev = "db91fd729cd188daf925aaf5043a6ca0d3660655";
+    hash = "sha256-FFI3vW4O4Hyx4phzkXzId8Uv1mGdKMzNccUxGZemZtg=";
   };
 
   patchPhase = ''
@@ -65,8 +65,10 @@ stdenv.mkDerivation (finalAttrs: {
       Please install a toolchain, such as the CE C toolchain.
     '';
     homepage = "https://github.com/jacobly0/llvm-project";
-    license = with lib.licenses; [ asl20 llvm-exception ];
-    maintainers = with lib.maintainers; [ clevor ];
+    license = with lib.licenses; [
+      asl20
+      llvm-exception
+    ];
     platforms = lib.platforms.unix;
   };
 })

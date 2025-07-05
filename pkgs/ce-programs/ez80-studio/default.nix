@@ -26,6 +26,5 @@ buildCEProgram {
   meta = {
     description = "An on-calc eZ80 assembly IDE for the TI-84+ CE/83 PCE";
     license = with lib.licenses; [ gpl3 ];
-    maintainers = with lib.maintainers; [ clevor ];
   };
 }

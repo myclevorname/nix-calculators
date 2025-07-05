@@ -18,6 +18,5 @@ buildCEProgram {
       cc-by-nc-30 # and
       bsd2
     ];
-    maintainers = with lib.maintainers; [ clevor ];
   };
 }

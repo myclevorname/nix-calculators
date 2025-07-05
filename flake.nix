@@ -33,7 +33,7 @@
             name = "nix-shell";
             src = null;
           };
-          formatter = pkgs.nixfmt-rfc-style;
+          formatter = pkgs.nixfmt-tree;
           legacyPackages = import ./pkgs { nixpkgs = pkgs; };
           checks.default = pkgs.linkFarm "all-nix-calculators" (
             (map (name: {

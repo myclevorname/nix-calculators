@@ -19,6 +19,5 @@ buildCEProgram {
     homepage = "https://github.com/mateoconlechuga/cesium";
     description = "A GUI shell for the TI-84+CE";
     license = with lib.licenses; [ bsd3 ];
-    maintainers = with lib.maintainers; [ clevor ];
   };
 }

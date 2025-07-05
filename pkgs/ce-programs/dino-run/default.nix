@@ -16,6 +16,5 @@ buildCEProgram {
   meta = {
     description = "A clone of Google Chrome's dinosaur game for the TI-84+CE";
     license = with lib.licenses; [ mit ];
-    maintainers = with lib.maintainers; [ clevor ];
   };
 }

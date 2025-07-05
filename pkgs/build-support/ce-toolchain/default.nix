@@ -10,13 +10,13 @@
 }:
 stdenv.mkDerivation {
   pname = "ce-toolchain";
-  version = "nightly-unstable-2025-05-03";
+  version = "nightly-unstable-2025-06-21";
   src = fetchFromGitHub {
     owner = "CE-Programming";
     repo = "toolchain";
     fetchSubmodules = true;
-    rev = "a1de0bb4a3365b7764538bf512f6936a2898369a";
-    hash = "sha256-dd3p16+7yKgVLCbsiixV9moomNs96Rd1IVAn1zQB+io=";
+    rev = "a9687a125e60113d1169fe648ed94c178f8fff3d";
+    hash = "sha256-mmG/5GM06qY0guieSuZElJyte3NbNK8cYgP7LxXSiA8=";
   };
   patches = [ ./edit-makefiles.patch ];
   postPatch = ''
@@ -42,7 +42,6 @@ stdenv.mkDerivation {
   ];
   meta = {
     description = "Toolchain and libraries for C/C++ programming on the TI-84+ CE calculator series ";
-    maintainers = with lib.maintainers; [ clevor ];
     mainProgram = "cedev-config";
     platforms = [
       "x86_64-linux"

@@ -18,6 +18,5 @@ buildCEProgram {
   meta = {
     description = "Celtic Hybrid BASIC library for the TI-84 Plus CE";
     license = with lib.licenses; [ bsd3 ];
-    maintainers = with lib.maintainers; [ clevor ];
   };
 }

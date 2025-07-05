@@ -22,6 +22,5 @@ buildCEProgram {
   meta = {
     description = "A Game Boy emulator for the TI-84 Plus CE and TI-83 Premium CE.";
     license = with lib.licenses; [ gpl3Only ];
-    maintainers = with lib.maintainers; [ clevor ];
   };
 }

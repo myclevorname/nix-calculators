@@ -25,6 +25,5 @@ buildCEProgram {
   meta = {
     description = "Oiram is a mario-style platformer programmed from scratch in C and assembly using the CE development toolchain.";
     license = with lib.licenses; [ mit ];
-    maintainers = with lib.maintainers; [ clevor ];
   };
 }

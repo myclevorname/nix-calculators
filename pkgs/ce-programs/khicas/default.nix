@@ -33,5 +33,5 @@ buildCEProgram {
     ./mkapp${if builtins.isNull language then "en" else language}
   '';
   nativeBuildInputs = [ python3 ];
-  # meta.broken = true;
+  meta.broken = true;
 }

@@ -18,50 +18,45 @@
       self,
       flake-utils,
     }@inputs:
-    flake-utils.lib.eachSystem
-      [
-        "x86_64-linux"
-        "x86_64-darwin"
-      ]
-      (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        rec {
-          devShells.default = legacyPackages.buildCEProgram {
-            name = "nix-shell";
-            src = null;
-          };
-          formatter = pkgs.nixfmt-tree;
-          legacyPackages = import ./pkgs { nixpkgs = pkgs; };
-          checks.default = pkgs.linkFarm "all-nix-calculators" (
-            (map (name: {
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in
+      rec {
+        devShells.default = legacyPackages.buildCEProgram {
+          name = "nix-shell";
+          src = null;
+        };
+        formatter = pkgs.nixfmt-tree;
+        legacyPackages = import ./pkgs { nixpkgs = pkgs; };
+        checks.default = pkgs.linkFarm "all-nix-calculators" (
+          (map (name: {
+            inherit name;
+            path = legacyPackages.CEPrograms.${name}.overrideAttrs { meta.unfree = false; };
+          }) (builtins.attrNames (pkgs.lib.filterAttrs (_: x: !x.meta.broken) legacyPackages.CEPrograms)))
+          ++ (map
+            (name: {
               inherit name;
-              path = legacyPackages.CEPrograms.${name}.overrideAttrs { meta.unfree = false; };
-            }) (builtins.attrNames (pkgs.lib.filterAttrs (_: x: !x.meta.broken) legacyPackages.CEPrograms)))
-            ++ (map
-              (name: {
-                inherit name;
-                path = legacyPackages.${name};
-              })
-              [
-                "convbin"
-                "convfont"
-                "convimg"
-                "llvm-ez80"
-                "ce-toolchain"
-                "ce-toolchain-stable"
-                "ce-libs"
-                "ce-libs-stable"
-                "puzpy"
-                "gcc4ti"
-                "ti80emu"
-              ]
-            )
-          );
-        }
-      )
+              path = legacyPackages.${name};
+            })
+            [
+              "convbin"
+              "convfont"
+              "convimg"
+              "llvm-ez80"
+              "ce-toolchain"
+              "ce-toolchain-stable"
+              "ce-libs"
+              "ce-libs-stable"
+              "puzpy"
+              "gcc4ti"
+              "ti80emu"
+            ]
+          )
+        );
+      }
+    )
     // {
 
       templates = {

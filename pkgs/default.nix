@@ -4,6 +4,7 @@
   let
     ce-programs =
       (import ./build-support final.pkgs)
+      // (import ./utilities final.pkgs)
       // (
         let
           getDirs =

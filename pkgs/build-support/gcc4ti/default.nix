@@ -48,4 +48,8 @@ gcc13Stdenv.mkDerivation (finalAttrs: {
     done
     runHook postFixup
   '';
+
+  meta = {
+    license = with lib.licenses; [ gpl2 ];
+  };
 })

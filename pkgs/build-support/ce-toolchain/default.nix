@@ -41,7 +41,8 @@ stdenv.mkDerivation {
     convbin
   ];
   meta = {
-    description = "Toolchain and libraries for C/C++ programming on the TI-84+ CE calculator series ";
+    description = "Toolchain and libraries for C/C++ programming on the TI-84+ CE calculator series";
+    license = with lib.licenses; [ lgpl3 ];
     mainProgram = "cedev-config";
     platforms = [
       "x86_64-linux"

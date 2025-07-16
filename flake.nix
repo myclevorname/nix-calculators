@@ -56,6 +56,7 @@
                 "ce-libs-stable"
                 "puzpy"
                 "gcc4ti"
+                "ti80emu"
               ]
             )
           );

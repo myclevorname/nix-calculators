@@ -18,4 +18,8 @@ buildPythonPackage rec {
   build-system = [ setuptools ];
 
   doCheck = false;
+
+  meta = {
+    license = with lib.licenses; [ mit ];
+  };
 }

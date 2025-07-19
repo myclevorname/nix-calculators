@@ -1,0 +1,27 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b0ed5625..c5facc59 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -52,6 +52,7 @@ set(SRC_FILES
+ add_executable(tilp2 ${SRC_FILES})
+ 
+ # External deps
++find_package(PkgConfig REQUIRED)
+ pkg_check_modules(DEPS REQUIRED gtk+-2.0 glib-2.0 ticonv tifiles2 ticables2 ticalcs2 zlib)
+ string(REPLACE ";" " " DEPS_LDFLAGS "${DEPS_LDFLAGS}")
+ find_package(Iconv REQUIRED)
+diff --git a/src/tilp_core.h b/src/tilp_core.h
+index e0ee5e35..87ba0d3b 100644
+--- a/src/tilp_core.h
++++ b/src/tilp_core.h
+@@ -35,6 +35,10 @@
+ extern "C" {
+ #endif
+ 
++#ifdef __linux__
++# define __LINUX__
++#endif
++
+ #include "tilibs.h"
+ #include "intl.h"
+ 

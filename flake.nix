@@ -41,17 +41,19 @@
               path = legacyPackages.${name};
             })
             [
+              "ce-libs"
+              "ce-libs-stable"
+              "ce-toolchain"
+              "ce-toolchain-stable"
+              "cemu-ti"
               "convbin"
               "convfont"
               "convimg"
-              "llvm-ez80"
-              "ce-toolchain"
-              "ce-toolchain-stable"
-              "ce-libs"
-              "ce-libs-stable"
-              "puzpy"
               "gcc4ti"
+              "llvm-ez80"
+              "puzpy"
               "ti80emu"
+              "tilp2"
             ]
           )
         );

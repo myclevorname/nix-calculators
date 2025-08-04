@@ -13,7 +13,7 @@ index b26ee5e6..d1e124e0 100644
  
  include $(CURDIR)/src/common.mk
  
- LIBS := libload graphx fontlibc keypadc fileioc usbdrvce srldrvce msddrvce fatdrvce
+ LIBS := libload graphx fontlibc keypadc fileioc usbdrvce srldrvce msddrvce fatdrvce lcddrvce
  SRCS := ce crt libc libcxx softfloat
 -TOOLS := fasmg convbin convimg convfont cedev-config
 +TOOLS := fasmg cedev-config

@@ -6,12 +6,12 @@
 }:
 buildCEProgram {
   pname = "tiboyce";
-  version = "0.3.0-unstable-2024-07-30";
+  version = "0.3.1-unstable-2025-08-21";
   src = fetchFromGitHub {
     owner = "calc84maniac";
     repo = "tiboyce";
-    rev = "88cdf31fd8a732ea1fecccd60c9e621b82c23ac7";
-    hash = "sha256-jXrIqVZzfUl91YKUIGCycCQQ+r8fXIArqD0eLpganq0=";
+    rev = "97064a9816d7cc0744b9ab49eac97fed14f1fb8c";
+    hash = "sha256-3r7glqATc+lIVR8dscDPckdr7HiDSZ4JxDkRsFt9MGA=";
   };
 
   nativeBuildInputs = [ spasm-ng ];

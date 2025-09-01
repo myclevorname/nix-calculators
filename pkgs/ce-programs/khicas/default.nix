@@ -36,6 +36,11 @@ buildCEProgram {
   nativeBuildInputs = [ python3 ];
   meta = {
     broken = true;
-    license = with lib.licenses; [ unfree ]; # No license found in repo
+    # License specified in install_en.txt
+    # Includes uSTL under the MIT license
+    license = with lib.licenses; [
+      gpl2
+      mit
+    ];
   };
 }

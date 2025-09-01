@@ -12,6 +12,7 @@
   name,
   src,
   title,
+  meta ? { },
 }:
 stdenv.mkDerivation {
   name = name + ".8xv";
@@ -34,4 +35,5 @@ stdenv.mkDerivation {
       ]
     ))
   ];
+  inherit meta;
 }

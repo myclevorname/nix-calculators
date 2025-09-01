@@ -3,6 +3,7 @@
   src,
   name ? builtins.baseNameOf src,
   namePrefix,
+  meta ? { },
 }:
 # romFile is the file you want to convert
 let
@@ -28,4 +29,5 @@ stdenv.mkDerivation {
     mkdir -p $out
     cp *.8xv $out
   '';
+  inherit meta;
 }

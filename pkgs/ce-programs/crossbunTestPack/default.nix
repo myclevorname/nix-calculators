@@ -1,6 +1,7 @@
 {
   buildCrossbunPack,
   fetchurl,
+  lib,
 }:
 buildCrossbunPack {
   name = "MYPACK";
@@ -11,4 +12,6 @@ buildCrossbunPack {
   };
   title = "Test pack";
   description = "Just a test";
+
+  meta.license = with lib.licenses; [ unfree ]; # Can't find the license
 }

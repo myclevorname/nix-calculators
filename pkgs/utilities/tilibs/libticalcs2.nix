@@ -25,23 +25,22 @@ stdenv.mkDerivation (finalAttrs: {
     pkg-config
   ];
 
-  buildInputs =
-    [
-      glib
-      xz
-      bzip2
-    ]
-    ++ (with tilibs; [
-      libticonv
-      libtifiles2
-      libticables2
-    ])
-    ++ lib.optionals stdenv.hostPlatform.isLinux [
-      acl
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      libobjc
-    ];
+  buildInputs = [
+    glib
+    xz
+    bzip2
+  ]
+  ++ (with tilibs; [
+    libticonv
+    libtifiles2
+    libticables2
+  ])
+  ++ lib.optionals stdenv.hostPlatform.isLinux [
+    acl
+  ]
+  ++ lib.optionals stdenv.hostPlatform.isDarwin [
+    libobjc
+  ];
 
   meta = with lib; {
     changelog = "http://lpg.ticalc.org/prj_tilp/news.html";

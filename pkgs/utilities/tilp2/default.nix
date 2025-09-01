@@ -23,16 +23,15 @@ stdenv.mkDerivation (finalAttrs: {
     intltool
     pkg-config
   ];
-  buildInputs =
-    [
-      gtk2
-    ]
-    ++ (with tilibs; [
-      libticonv
-      libtifiles2
-      libticables2
-      libticalcs2
-    ]);
+  buildInputs = [
+    gtk2
+  ]
+  ++ (with tilibs; [
+    libticonv
+    libtifiles2
+    libticables2
+    libticalcs2
+  ]);
   patches = [ ./compile.patch ];
 
   meta = {

@@ -1,5 +1,5 @@
-{ nixpkgs }:
-(nixpkgs.extend (
+{ pkgs }:
+(pkgs.extend (
   final: prev:
   let
     ce-programs =

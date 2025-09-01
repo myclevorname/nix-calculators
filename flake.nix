@@ -29,7 +29,7 @@
           src = null;
         };
         formatter = pkgs.nixfmt-tree;
-        legacyPackages = import ./pkgs { nixpkgs = pkgs; };
+        legacyPackages = import ./pkgs { inherit pkgs; };
         checks.default = pkgs.linkFarm "all-nix-calculators" (
           (map (name: {
             inherit name;

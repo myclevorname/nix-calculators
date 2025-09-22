@@ -15,8 +15,8 @@ stdenv.mkDerivation {
     owner = "CE-Programming";
     repo = "toolchain";
     fetchSubmodules = true;
-    rev = "af35bd7b48809bfbaf22c08681a3147b428b3bbb";
-    hash = "sha256-rT8g9+Cn8PJhdIki2Tn3j4JzBMDkixHjn8nQ3Qz9CIw=";
+    rev = "afded7eee7572bb3a0a7a8f56214a670276fc58c";
+    hash = "sha256-229bxOLolXN+Nyp0kyVUyto+Ccccs1eveJ9MeFg23F4=";
   };
   patches = [ ./edit-makefiles.patch ];
   postPatch = ''

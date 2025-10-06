@@ -16,8 +16,8 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "CE-Programming";
     repo = "CEmu";
-    rev = "218c0b773bdc8e92182753256b17621aa5bf580f";
-    hash = "sha256-QvXlu6QbOwzXvbDyMwZkmjGT4gFxVvrJfrv2Q+N+mhQ=";
+    rev = "1ad32e59bd32f8bfa0ca686897ba79a1495f2114";
+    hash = "sha256-EfTK+vCvsT8/oUmyIeNmirB1O4sj06MYMOSvkpWlN30=";
     fetchSubmodules = true;
   };
 

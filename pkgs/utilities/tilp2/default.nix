@@ -38,7 +38,7 @@ stdenv.mkDerivation (finalAttrs: {
     description = "TILP is a program allowing a computer to communicate with TI graphing calculators";
     homepage = "http://lpg.ticalc.org/prj_tilp";
     license = lib.licenses.gpl2Only;
-    mainProgram = "tilp";
+    mainProgram = "tilp2";
     platforms = lib.platforms.unix;
   };
 })

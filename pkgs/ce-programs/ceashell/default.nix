@@ -6,13 +6,13 @@
 }:
 buildCEProgramStable {
   pname = "ceashell";
-  version = "2.0.2-unstable-2025-06-02";
+  version = "2.0.2-unstable-2025-11-03";
   src = fetchFromGitHub {
     owner = "RoccoLoxPrograms";
     repo = "CEaShell";
     fetchSubmodules = true;
-    rev = "1e0fa46835297b07cde59e968d5ddde0952c97de";
-    hash = "sha256-OFsXNsz+Ikm41DSIdb8uxIvQGL+8kVdsKN4iJp8hrHw=";
+    rev = "fae90006b7540cda415a4f04bef90285072e08ce";
+    hash = "sha256-MietApzqH1q25me81YWE/BthkFEt9gKkrxbH/PAgYyY=";
   };
   nativeBuildInputs = [
     python3
@@ -21,5 +21,6 @@ buildCEProgramStable {
     homepage = "https://ceme.tech/t18820";
     description = "CEaShell (pronounced like \"Seashell\") is a new shell for the TI-84 Plus CE.";
     license = with lib.licenses; [ gpl3Only ];
+    broken = true;
   };
 }

@@ -5,7 +5,7 @@
 }:
 buildCEProgram {
   pname = "famicalc";
-  version = "0-unstable-2025-11-03";
+  version = "Pre-Release-unstable-2025-11-03";
   src = fetchFromGitHub {
     owner = "Zaalan3";
     repo = "Famicalc";

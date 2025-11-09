@@ -14,4 +14,4 @@ If you aren't a Nixpkgs maintainer, omit the `meta.maintainers` attribute.
 
 ## Licenses
 
-This repo is licensed under the MIT license, with the `templates` directory consisting of code under the LGPL-3.0 license located at https://github.com/CE-Programming/toolchain/blob/master/examples/hello_world.
+This repo is licensed under the MIT license, with the `templates` directory consisting of code under the LGPL-3.0 license located at [examples/hello\_world](templates/hello-world).

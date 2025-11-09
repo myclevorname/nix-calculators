@@ -1,7 +1,7 @@
 {
   inputs = {
     toolchain = {
-      url = "github:myclevorname/nix-calculators";
+      url = "git+https://codeberg.org/clevor/ce-programs";
       inputs.flake-utils.follows = "flake-utils";
     };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

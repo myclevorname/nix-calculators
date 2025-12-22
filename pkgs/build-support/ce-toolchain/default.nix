@@ -10,13 +10,13 @@
 }:
 stdenv.mkDerivation {
   pname = "ce-toolchain";
-  version = "nightly-unstable-2025-12-22";
+  version = "14.0-unstable-2025-12-22";
   src = fetchFromGitHub {
     owner = "CE-Programming";
     repo = "toolchain";
     fetchSubmodules = true;
-    rev = "bc1ab5d6f96ce9d93f644076c6a25c654b332900";
-    hash = "sha256-zVHD/sMABppaYXqVrXtQYqCqT9/DCenGrOdCNFLqX2E=";
+    rev = "6ee6d1ae8be165f3015b45e8ee7f929aa50099a9";
+    hash = "sha256-V2wNDCU+z3EGUjAiOrwZn28XB2e/Bviiohn452G9y+k=";
   };
   patches = [ ./edit-makefiles.patch ];
   postPatch = ''

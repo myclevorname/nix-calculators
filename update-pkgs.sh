@@ -14,4 +14,5 @@ nix-update legacyPackages.x86_64-linux.ce-toolchain-stable --flake
 
 wait -f
 
+nix flake check --extra-experimental-features "nix-command flakes"
 nix build .#checks.x86_64-linux.default --extra-experimental-features "nix-command flakes"

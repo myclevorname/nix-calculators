@@ -30,33 +30,46 @@
         };
         formatter = pkgs.nixfmt-tree;
         legacyPackages = import ./pkgs { inherit pkgs; };
-        checks.default = pkgs.linkFarm "all-nix-calculators" (
-          (map (name: {
-            inherit name;
-            path = legacyPackages.CEPrograms.${name}.overrideAttrs { meta.unfree = false; };
-          }) (builtins.attrNames (pkgs.lib.filterAttrs (_: x: !x.meta.broken) legacyPackages.CEPrograms)))
-          ++ (map
-            (name: {
+        checks = {
+          test-broken = pkgs.linkFarm "broken-programs" (
+            map (name: {
               inherit name;
-              path = legacyPackages.${name};
-            })
-            [
-              "ce-libs"
-              "ce-libs-stable"
-              "ce-toolchain"
-              "ce-toolchain-stable"
-              "cemu-ti"
-              "convbin"
-              "convfont"
-              "convimg"
-              "gcc4ti"
-              "llvm-ez80"
-              "puzpy"
-              "ti80emu"
-              "tilp2"
-            ]
-          )
-        );
+              path = pkgs.testers.testBuildFailure (
+                legacyPackages.CEPrograms.${name}.overrideAttrs {
+                  meta.unfree = false;
+                  meta.broken = false;
+                }
+              );
+            }) (builtins.attrNames (pkgs.lib.filterAttrs (_: x: x.meta.broken) legacyPackages.CEPrograms))
+          );
+          default = pkgs.linkFarm "all" (
+            (map (name: {
+              inherit name;
+              path = legacyPackages.CEPrograms.${name}.overrideAttrs { meta.unfree = false; };
+            }) (builtins.attrNames (pkgs.lib.filterAttrs (_: x: !x.meta.broken) legacyPackages.CEPrograms)))
+            ++ (map
+              (name: {
+                inherit name;
+                path = legacyPackages.${name};
+              })
+              [
+                "ce-libs"
+                "ce-libs-stable"
+                "ce-toolchain"
+                "ce-toolchain-stable"
+                "cemu-ti"
+                "convbin"
+                "convfont"
+                "convimg"
+                "gcc4ti"
+                "llvm-ez80"
+                "puzpy"
+                "ti80emu"
+                "tilp2"
+              ]
+            )
+          );
+        };
       }
     )
     // {

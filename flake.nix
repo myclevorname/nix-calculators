@@ -30,29 +30,20 @@
         };
         formatter = pkgs.nixfmt-tree;
         legacyPackages = import ./pkgs { inherit pkgs; };
-        checks = {
-          test-broken = pkgs.linkFarm "broken-programs" (
-            map (name: {
-              inherit name;
-              path = pkgs.testers.testBuildFailure (
-                legacyPackages.CEPrograms.${name}.overrideAttrs {
-                  meta.unfree = false;
-                  meta.broken = false;
-                }
-              );
-            }) (builtins.attrNames (pkgs.lib.filterAttrs (_: x: x.meta.broken) legacyPackages.CEPrograms))
-          );
-          default = pkgs.linkFarm "all" (
-            (map (name: {
-              inherit name;
-              path = legacyPackages.CEPrograms.${name}.overrideAttrs { meta.unfree = false; };
-            }) (builtins.attrNames (pkgs.lib.filterAttrs (_: x: !x.meta.broken) legacyPackages.CEPrograms)))
-            ++ (map
-              (name: {
-                inherit name;
-                path = legacyPackages.${name};
-              })
-              [
+        checks =
+          let
+            all =
+              (map (
+                name:
+                legacyPackages.CEPrograms.${name}.overrideAttrs (
+                  final: prev: {
+                    meta = prev.meta // {
+                      license = [ ];
+                    };
+                  }
+                )
+              ) (builtins.attrNames legacyPackages.CEPrograms))
+              ++ (map (name: legacyPackages.${name}) [
                 "ce-libs"
                 "ce-libs-stable"
                 "ce-toolchain"
@@ -66,10 +57,31 @@
                 "puzpy"
                 "ti80emu"
                 "tilp2"
-              ]
-            )
-          );
-        };
+              ]);
+            isBroken = x: x.meta.broken or false;
+          in
+          {
+            test-broken = pkgs.linkFarm "broken-programs" (
+              map (package: {
+                name = if package ? pname then package.pname else package.name;
+                path = pkgs.testers.testBuildFailure (
+                  package.overrideAttrs (
+                    final: prev: {
+                      meta = prev.meta // {
+                        broken = false;
+                      };
+                    }
+                  )
+                );
+              }) (builtins.filter isBroken all)
+            );
+            default = pkgs.linkFarm "all" (
+              map (package: {
+                name = if package ? pname then package.pname else package.name;
+                path = package;
+              }) (builtins.filter (x: !(isBroken x)) all)
+            );
+          };
       }
     )
     // {

@@ -8,7 +8,7 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "llvm-ez80";
-  version = "nightly-unstable-2025-12-31";
+  version = "nightly-unstable-2026-01-02";
 
   nativeBuildInputs = [
     cmake
@@ -19,8 +19,8 @@ stdenv.mkDerivation (finalAttrs: {
     # owner = "jacobly0";
     owner = "CE-Programming";
     repo = "llvm-project";
-    rev = "2aa306122e45e68765d02fd6782c1d47468780b5";
-    hash = "sha256-WlN4PZk07foIoNTCAriiQsyAPs60TmjQFBRpnjETKoA=";
+    rev = "805bc4f585003f435cc3c4c8838dd74da60045c1";
+    hash = "sha256-g1YYHdDil48zZta805v4JhDvQ0tRdGqAfja0gqiIO7o=";
   };
 
   patchPhase = ''

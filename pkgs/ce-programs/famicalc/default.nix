@@ -5,12 +5,12 @@
 }:
 buildCEProgram {
   pname = "famicalc";
-  version = "Pre-Release-unstable-2025-11-29";
+  version = "Pre-Release-unstable-2025-12-30";
   src = fetchFromGitHub {
     owner = "Zaalan3";
     repo = "Famicalc";
-    rev = "c84ecda30a7bdf52cb4eaef416b7901533b9329f";
-    hash = "sha256-bGDGhi9poELypaun9oTyYV4xt2fnUYxr6YmitCwLgzk=";
+    rev = "1a42bbe926e8c2462b8ef4905cd08c48bfb516d1";
+    hash = "sha256-c+iUocztIdVGmkCpLWha0V7r0owNRqHEcI/GrPUpCWg=";
   };
   meta = {
     description = "WIP NES emulator for the TI84+CE";

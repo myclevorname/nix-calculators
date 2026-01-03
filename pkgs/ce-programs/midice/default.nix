@@ -5,14 +5,15 @@
 }:
 buildCEProgram {
   pname = "midiCE";
-  version = "1.0-unstable-2025-02-05";
+  version = "1.0-unstable-2026-01-03";
   src = fetchFromGitHub {
     owner = "TIny-Hacker";
     repo = "midiCE";
-    rev = "d4406a474f160b8535cdf6537cc901a5e6763c7d";
-    hash = "sha256-uZrkBYLxRR5+tBfVXnGQwX3NzdZ9RiuNg9t/fyJ0P1s=";
+    rev = "563afe71ce4423bfc20af1f25ffaee03d60dce2c";
+    hash = "sha256-uxfzh6xieou4UtLfmf1g3qtjiH2ckTCUA9/pbSKlJLk=";
   };
   meta = {
+    broken = true;
     description = "Use a TI-84 Plus CE as a USB MIDI keyboard / controller";
     license = with lib.licenses; [ lgpl3Only ];
   };

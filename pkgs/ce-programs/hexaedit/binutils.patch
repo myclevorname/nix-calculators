@@ -1,0 +1,77 @@
+diff --git a/src/asmutil.asm b/src/asmutil.s
+similarity index 97%
+copy from src/asmutil.asm
+copy to src/asmutil.s
+index 806072e..20824e3 100644
+--- a/src/asmutil.asm
++++ b/src/asmutil.s
+@@ -35,12 +35,12 @@
+ ; OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ 
+ 
+-assume ADL=1
++.assume ADL=1
+ 
+-section .text
++.section .text
+ 
+ 
+-  public  _asmutil_IsNamedVar
++.global _asmutil_IsNamedVar
+ _asmutil_IsNamedVar:
+ ; Arguments:
+ ;   arg0 = variable type
+@@ -71,7 +71,7 @@ _asmutil_IsNamedVar:
+ 
+ ; -----------------------------------------------------------------------------
+ 
+-	public	_asmutil_CopyData
++.global _asmutil_CopyData
+ _asmutil_CopyData:
+ ; Arguments:
+ ;   arg0 == pointer to copy data from
+@@ -142,7 +142,7 @@ _find_phrase:
+ .cont:
+   ld    de,0            ; E = phrase offset
+ 
+-.compare:
++.compare_1:
+   ld    a,(bc)
+   ld    hl,(iy + 9)
+   add   hl,de
+@@ -161,7 +161,7 @@ _find_phrase:
+   jr    z,.exitFast     ; Carry flag is still reset if Z is set
+ 
+   inc   bc              ; Increment current address
+-  jr    .compare
++  jr    .compare_1
+ 
+ .match:
+   inc   e               ; Increment phrase offset counter
+@@ -181,7 +181,7 @@ _find_phrase:
+ 
+ ; -----------------------------------------------------------------------------
+ 
+-  public _asmutil_FindPhrase
++.global _asmutil_FindPhrase
+ _asmutil_FindPhrase:
+ ; Arguments:
+ ;   arg0 == start address
+@@ -224,7 +224,7 @@ _asmutil_FindPhrase:
+ 
+   ld  hl,(iy + 3)
+ 
+-.compare:
++.compare_2:
+   push  hl            ; HL == start address
+   call  _find_phrase
+   pop   bc
+@@ -259,7 +259,7 @@ _asmutil_FindPhrase:
+   ld    hl,0
+   ld    l,(iy + 12)
+   add   hl,de
+-  jr    .compare
++  jr    .compare_2
+ 
+ .finish:
+   pop   hl            ; _find_phrase return value

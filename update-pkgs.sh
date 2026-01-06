@@ -7,7 +7,7 @@ for i in $(ls pkgs/ce-programs | grep -v "tiboyceTestROM" | grep -v "crossbunTes
 	nix-update legacyPackages.x86_64-linux.CEPrograms.$i --version=branch --flake
 done
 
-for i in ce-toolchain llvm-ez80 gcc4ti cemu-ti tilibs.libticonv tilp2; do
+for i in ce-toolchain llvm-ez80 gcc4ti cemu-ti tilibs.libticonv tilp2 binutils-z80; do
 	nix-update legacyPackages.x86_64-linux.$i --version=branch --flake
 done
 nix-update legacyPackages.x86_64-linux.ce-toolchain-stable --flake

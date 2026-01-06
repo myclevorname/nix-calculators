@@ -7,16 +7,17 @@
   lib,
   llvm-ez80,
   convfont,
+  binutils-z80,
 }:
 stdenv.mkDerivation {
   pname = "ce-toolchain";
-  version = "14.0-unstable-2026-01-01";
+  version = "14.0-unstable-2026-01-05";
   src = fetchFromGitHub {
     owner = "CE-Programming";
     repo = "toolchain";
     fetchSubmodules = true;
-    rev = "acbc64ed29027cb00e1781918affee012c48dac0";
-    hash = "sha256-7tBRw4rbKg4xxWFRGB8GifPWaYLeFIBNmrP5fMCmYaI=";
+    rev = "624b45669a953c564ecfd9cfcead2c98f410eb98";
+    hash = "sha256-hhkiXbHQpOn+Fe/3kYIBY0dlZhKgCB6p7Lrq4Y2ISDc=";
   };
   patches = [ ./edit-makefiles.patch ];
   postPatch = ''
@@ -27,6 +28,7 @@ stdenv.mkDerivation {
     ln -s ${llvm-ez80}/bin/ez80-link $out/bin
     ln -s ${llvm-ez80}/bin/ez80-clang $out/bin
     ln -s ${fasmg}/bin/fasmg $out/bin
+    ln -s ${binutils-z80} $out/binutils
     substituteAllInPlace makefile
     substituteAllInPlace src/common.mk
     substituteAllInPlace src/makefile.mk
@@ -39,6 +41,7 @@ stdenv.mkDerivation {
     llvm-ez80
     fasmg
     convbin
+    binutils-z80
   ];
   meta = {
     description = "Toolchain and libraries for C/C++ programming on the TI-84+ CE calculator series";

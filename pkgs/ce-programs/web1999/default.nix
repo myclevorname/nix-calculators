@@ -13,6 +13,7 @@ buildCEProgram {
     hash = "sha256-lZy0EU7Rno5UhW4NG84ZGNm3Mst7VWpfchJLHoFc990=";
   };
   meta = {
+    broken = true;
     description = "a simulation of the Web browsing experience circa the turn of the third millennium";
     license = with lib.licenses; [
       cc-by-nc-30 # and

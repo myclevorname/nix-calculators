@@ -3,6 +3,7 @@ let
   inherit (pkgs) callPackage python3Packages;
 in
 {
+  binutils-z80 = callPackage ./binutils-z80 { };
   convbin = callPackage ./convbin { };
   convimg = callPackage ./convimg { };
   convfont = callPackage ./convfont { };

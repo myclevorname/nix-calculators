@@ -13,6 +13,7 @@ buildCEProgram {
     hash = "sha256-c+iUocztIdVGmkCpLWha0V7r0owNRqHEcI/GrPUpCWg=";
   };
   meta = {
+    broken = true;
     description = "WIP NES emulator for the TI84+CE";
     license = with lib.licenses; [ mit ];
   };

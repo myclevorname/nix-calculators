@@ -44,6 +44,7 @@
                 )
               ) (builtins.attrNames legacyPackages.CEPrograms))
               ++ (map (name: legacyPackages.${name}) [
+                "binutils-z80"
                 "ce-libs"
                 "ce-libs-stable"
                 "ce-toolchain"

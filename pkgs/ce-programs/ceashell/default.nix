@@ -18,6 +18,7 @@ buildCEProgram {
     python3
   ];
   meta = {
+    broken = true;
     homepage = "https://ceme.tech/t18820";
     description = "CEaShell (pronounced like \"Seashell\") is a new shell for the TI-84 Plus CE.";
     license = with lib.licenses; [ gpl3Only ];

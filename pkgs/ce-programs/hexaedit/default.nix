@@ -13,6 +13,7 @@ buildCEProgram {
     hash = "sha256-k4WvdFvxv7brAJ5mdrF+qECTyjATbARJJxddq+WlXl4=";
   };
   meta = {
+    broken = true;
     description = "HexaEdit CE is a powerful on-calc hex editor for the TI-84 Plus CE.";
     license = with lib.licenses; [ bsd3 ];
   };

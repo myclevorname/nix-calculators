@@ -13,11 +13,13 @@
   enableParallelBuilding ? true,
   nativeBuildInputs ? [ ],
   installPhase ? null,
+  env ? { },
   ...
 }@inputs:
 stdenv.mkDerivation (
   inputs
   // {
+    CEDEV = ce-toolchain;
     buildPhase =
       if buildPhase != null then
         buildPhase

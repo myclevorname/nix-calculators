@@ -1,14 +1,27 @@
-{ ce-toolchain, fetchFromGitHub }:
+{
+  ce-toolchain,
+  fetchFromGitHub,
+  fetchpatch,
+}:
 ce-toolchain.overrideAttrs {
-  pname = "ce-toolchain";
-  version = "14.0";
-  patches = [ ./edit-makefiles.patch ];
+  pname = "ce-toolchain-stable";
+  version = "14.1";
+  patches = [
+    ./edit-makefiles.patch
+    (fetchpatch {
+      name = "no-addrsig";
+      url = "https://github.com/CE-Programming/toolchain/commit/0c80848d80e32fb098b3831d41a5e3fede3018cb.diff";
+      hash = "sha256-vVW2PdCLf51rEktqolAd1RCu3euXRsh9EAD/3ugILdw=";
+    })
+  ];
   src = fetchFromGitHub {
     owner = "CE-Programming";
     repo = "toolchain";
     fetchSubmodules = true;
-    rev = "decfb1b1848bc782b8deab846694e636951a2971";
-    hash = "sha256-YNufixi27A+l042+CLJtYzYxHEXt73c6iv3m+XDht24=";
+    rev = "444ff89fcf1b6144ee8e179424b1bd3d4eed624b";
+    hash = "sha256-oTajT8Wx6tmthEssBEKYXQW9XCCRIZYSsbTmmCMbA4E=";
   };
-  meta.broken = true;
+  postInstall = ''
+    rm -r $out/binutils
+  '';
 }

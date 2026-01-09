@@ -1,10 +1,10 @@
 {
-  buildCEProgram,
+  buildCEProgramStable,
   fetchFromGitHub,
   lib,
   python3,
 }:
-buildCEProgram {
+buildCEProgramStable {
   pname = "ez80-studio";
   version = "1.1.0-unstable-2026-01-03";
   src = fetchFromGitHub {
@@ -24,7 +24,6 @@ buildCEProgram {
   '';
   makeFlags = "final";
   meta = {
-    broken = true;
     description = "An on-calc eZ80 assembly IDE for the TI-84+ CE/83 PCE";
     license = with lib.licenses; [ gpl3 ];
   };

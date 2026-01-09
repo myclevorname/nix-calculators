@@ -1,19 +1,26 @@
 {
-  buildCEProgram,
+  buildCEProgramStable,
   fetchFromGitHub,
   lib,
+  python3,
 }:
-buildCEProgram {
+buildCEProgramStable {
   pname = "screensaver";
-  version = "1.0-unstable-2026-01-03";
+  version = "1.0-unstable-2026-01-08";
   src = fetchFromGitHub {
     owner = "EzCE";
     repo = "ScreenSaver-CE";
-    rev = "05f5056a8da85765f2b70434a1c690ee1e22ffc4";
-    hash = "sha256-/wNCsDIXvYke1vgnCdLXFSVkAUy+uhAGNvJzgJlIr4M=";
+    rev = "ef0b0473aec777f27c3950f64734a22c351b419b";
+    hash = "sha256-xi4pRm4fF1JQu3RyxLGkz7MNaInQZrytDMalz88cRnQ=";
   };
+  nativeBuildInputs = [ python3 ];
+  installPhase = ''
+    runHook preInstall
+    mkdir -p $out
+    cp app/bin/*.8x* README.md readme.txt LICENSE $out
+    runHook postInstall
+  '';
   meta = {
-    broken = true;
     description = "Run screensavers using APD";
     license = with lib.licenses; [ gpl3 ];
   };

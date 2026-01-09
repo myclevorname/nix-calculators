@@ -11,7 +11,7 @@
 }:
 stdenv.mkDerivation {
   pname = "ce-toolchain";
-  version = "14.0-unstable-2026-01-06";
+  version = "14.1-unstable-2026-01-06";
   src = fetchFromGitHub {
     owner = "CE-Programming";
     repo = "toolchain";

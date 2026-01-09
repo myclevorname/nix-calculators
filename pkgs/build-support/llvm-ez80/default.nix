@@ -8,7 +8,7 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "llvm-ez80";
-  version = "nightly-unstable-2026-01-04";
+  version = "15-unstable-2026-01-04";
 
   nativeBuildInputs = [
     cmake

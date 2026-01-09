@@ -1,11 +1,11 @@
 {
   lib,
-  buildCEProgram,
+  buildCEProgramStable,
   fetchFromGitHub,
   python3,
   language ? null,
 }:
-buildCEProgram {
+buildCEProgramStable {
   pname = "khicas" + (if builtins.isNull language then "" else "-${language}");
   version = "nightly-unstable-2025-12-31";
   src = fetchFromGitHub {

@@ -1,9 +1,9 @@
 {
-  buildCEProgram,
+  buildCEProgramStable,
   fetchFromGitHub,
   lib,
 }:
-buildCEProgram {
+buildCEProgramStable {
   pname = "midiCE";
   version = "1.0-unstable-2026-01-03";
   src = fetchFromGitHub {

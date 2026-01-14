@@ -5,7 +5,7 @@
 }:
 ce-toolchain.overrideAttrs {
   pname = "ce-toolchain-stable";
-  version = "14.1";
+  version = "14.2";
   patches = [
     ./edit-makefiles.patch
     (fetchpatch {
@@ -18,8 +18,8 @@ ce-toolchain.overrideAttrs {
     owner = "CE-Programming";
     repo = "toolchain";
     fetchSubmodules = true;
-    rev = "444ff89fcf1b6144ee8e179424b1bd3d4eed624b";
-    hash = "sha256-oTajT8Wx6tmthEssBEKYXQW9XCCRIZYSsbTmmCMbA4E=";
+    rev = "053daca42f7db05ccd827fe7c926e99a8c35752f";
+    hash = "sha256-WW+qSINI3FBYh5cF9bh/+y8jHRSuEPMXSmZl2S4oc1s=";
   };
   postInstall = ''
     rm -r $out/binutils

@@ -12,12 +12,12 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "CEmu";
-  version = "2.0-unstable-2026-01-04";
+  version = "2.0-unstable-2026-01-18";
   src = fetchFromGitHub {
     owner = "CE-Programming";
     repo = "CEmu";
-    rev = "516d420d1ab929472f78b3ecc8366b35520f1041";
-    hash = "sha256-6XFZtzwQT+DaCZjO9VbtmZiF5sO0J36FBjQA2bmdp5o=";
+    rev = "5330ab740be974321d704aa6c6e16005b33a78e5";
+    hash = "sha256-XWDinszsFCP4RtiYilzq9U2OPuMBaYy/oCC3s5IjL+w=";
     fetchSubmodules = true;
   };
 

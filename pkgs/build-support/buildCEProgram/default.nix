@@ -14,6 +14,7 @@
   nativeBuildInputs ? [ ],
   installPhase ? null,
   env ? { },
+  dontConvimg ? false,
   ...
 }@inputs:
 stdenv.mkDerivation (
@@ -26,7 +27,7 @@ stdenv.mkDerivation (
       else
         ''
           runHook preBuild
-          make gfx $makeFlags || true
+          ${if dontConvimg then "" else "make gfx $makeFlags"}
           make $makeFlags
           runHook postBuild
         '';

@@ -15,6 +15,7 @@ buildCEProgram {
   postInstall = ''
     cp CelticCE.pdf cheatsheet.txt COMMANDS.md $out
   '';
+  dontConvimg = true;
   meta = {
     description = "Celtic Hybrid BASIC library for the TI-84 Plus CE";
     license = with lib.licenses; [ bsd3 ];

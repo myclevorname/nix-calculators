@@ -13,5 +13,8 @@ buildCrossbunPack {
   title = "Test pack";
   description = "Just a test";
 
-  meta.license = with lib.licenses; [ unfree ]; # Can't find the license
+  meta = {
+    broken = true;
+    license = with lib.licenses; [ unfree ]; # Can't find the license
+  };
 }

@@ -15,6 +15,7 @@ buildCEProgram {
   postInstall = ''
     cp -r creating_icons.md screenshots $out
   '';
+  dontConvimg = true;
   meta = {
     homepage = "https://github.com/mateoconlechuga/cesium";
     description = "A GUI shell for the TI-84+CE";

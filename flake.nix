@@ -24,9 +24,15 @@
         pkgs = nixpkgs.legacyPackages.${system};
       in
       rec {
-        devShells.default = legacyPackages.buildCEProgram {
-          name = "nix-shell";
-          src = null;
+        devShells = {
+          default = legacyPackages.buildCEProgram {
+            name = "nix-shell";
+            src = null;
+          };
+          stable = legacyPackages.buildCEProgramStable {
+            name = "nix-shell";
+            src = null;
+          };
         };
         formatter = pkgs.nixfmt-tree;
         legacyPackages = import ./pkgs { inherit pkgs; };

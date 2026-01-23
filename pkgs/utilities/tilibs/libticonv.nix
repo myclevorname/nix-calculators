@@ -9,12 +9,12 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "libticonv";
-  version = "1.18-unstable-2025-06-25";
+  version = "1.18-unstable-2026-01-21";
   src = fetchFromGitHub {
     owner = "debrouxl";
     repo = "tilibs";
-    rev = "70aa26ba81ce8abdb1c6e081b2af1aa679bcc0f1";
-    hash = "sha256-V8u5cL0Jj+qew1VSUGenrzSPNL3TXn5WxVZZWp2oHtw=";
+    rev = "791d2535813fa7ffef8f9feadf110998d4ae57fb";
+    hash = "sha256-fVHKG4XywiXbRq4BPRqF3yfFeKACa4rJuU5z8I+WQx4=";
   };
 
   sourceRoot = finalAttrs.src.name + "/libticonv/trunk";

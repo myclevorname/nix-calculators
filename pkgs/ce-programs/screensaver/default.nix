@@ -14,11 +14,8 @@ buildCEProgramStable {
     hash = "sha256-FYj+Vfh2qKGbwaks3gGr/8blobWkwtO1o4/JIbj/nBo=";
   };
   nativeBuildInputs = [ python3 ];
-  installPhase = ''
-    runHook preInstall
-    mkdir -p $out
-    cp app/bin/*.8x* README.md readme.txt LICENSE $out
-    runHook postInstall
+  preInstall = ''
+    rm $(find -name output.8xp)
   '';
   meta = {
     description = "Run screensavers using APD";

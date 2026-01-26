@@ -10,12 +10,12 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "tilp";
-  version = "1.18-unstable-2024-12-01";
+  version = "1.18-unstable-2026-01-25";
   src = fetchFromGitHub {
     owner = "debrouxl";
     repo = "tilp_and_gfm";
-    rev = "0a525619a07d92734b5eb5ba1d47c56f4de37458";
-    hash = "sha256-itPop4GO6ty40iucg31YgHEoK0W05eM+rD9tF+nAugE=";
+    rev = "4a399bc491b2d2d9fdab76d23d7cf87a43b0beec";
+    hash = "sha256-lR++eEYSO3xcTUVNMustm6Zd4bL2mKO//M0tPDEPen0=";
   };
   sourceRoot = finalAttrs.src.name + "/tilp/trunk/";
   nativeBuildInputs = [

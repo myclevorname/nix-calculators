@@ -1,5 +1,5 @@
 diff --git a/makefile b/makefile
-index f5f5b302..eee7455c 100644
+index f5f5b302..4dcad491 100644
 --- a/makefile
 +++ b/makefile
 @@ -14,14 +14,14 @@
@@ -30,6 +30,15 @@ index f5f5b302..eee7455c 100644
  	$(Q)$(call COPY,$(call NATIVEEXE,tools/cedev-config/bin/cedev-config),$(INSTALL_BIN))
  	$(Q)$(call COPY,$(call NATIVEEXE,tools/cedev-obj/bin/cedev-obj),$(INSTALL_BIN))
  	$(Q)$(WINDOWS_COPY)
+@@ -71,7 +68,7 @@ $(addprefix install-,$(LIBS)): $(TOOLS)
+ 	$(Q)$(MAKE) -C $(call SRCDIR,$(patsubst install-%,%,$@)) install PREFIX=$(PREFIX) DESTDIR=$(DESTDIR)
+ 
+ libs: $(LIBS) $(TOOLS)
+-	$(Q)$(call NATIVEEXE,tools/convbin/bin/convbin) --oformat 8xg-auto-extract \
++	$(Q)$(call NATIVEEXE,convbin) --oformat 8xg-auto-extract \
+ 		$(foreach library,$(LIBS),$(addprefix --input ,$(call SRCDIR,$(library))/$(library).8xv)) --output clibs.8xg
+ 
+ libs-zip:
 diff --git a/src/makefile.mk b/src/makefile.mk
 index ac24f3ce..4d9d5b11 100644
 --- a/src/makefile.mk

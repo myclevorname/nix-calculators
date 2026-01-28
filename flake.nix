@@ -84,7 +84,7 @@
             );
             default = pkgs.linkFarm "all" (
               map (package: {
-                name = if package ? pname then package.pname else package.name;
+                name = if package ? name then package.name else package.pname;
                 path = package;
               }) (builtins.filter (x: !(isBroken x)) all)
             );

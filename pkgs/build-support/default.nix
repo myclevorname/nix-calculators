@@ -18,9 +18,8 @@ in
   buildCrossbunPack = callPackage ./buildCrossbunPack { };
   buildTIBoyCEROM = callPackage ./buildTIBoyCEROM { tiboyce = pkgs.CEPrograms.tiboyce; };
   ce-libs = callPackage ./ce-libs { };
-  ce-libs-stable = callPackage ./ce-libs { ce-toolchain = pkgs.ce-toolchain-stable; };
-  # ce-libs-stable =
-  #   (callPackage ./ce-libs { ce-toolchain = pkgs.ce-toolchain-stable; }).overrideAttrs
-  #     { name = "clibs-stable.8xg"; };
+  ce-libs-stable =
+    (callPackage ./ce-libs { ce-toolchain = pkgs.ce-toolchain-stable; }).overrideAttrs
+      { name = "clibs-stable.8xg"; };
   puzpy = python3Packages.callPackage ./puzpy { };
 }

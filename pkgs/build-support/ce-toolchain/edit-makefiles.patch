@@ -1,5 +1,5 @@
 diff --git a/makefile b/makefile
-index f5f5b302..4dcad491 100644
+index e693bd00..4dcad491 100644
 --- a/makefile
 +++ b/makefile
 @@ -14,14 +14,14 @@
@@ -26,7 +26,7 @@ index f5f5b302..4dcad491 100644
  	$(Q)$(call COPY,$(call NATIVEPATH,src/linker_script_app.ld),$(INSTALL_META))
 -	$(Q)$(call COPY,$(call NATIVEEXE,tools/convfont/convfont),$(INSTALL_BIN))
 -	$(Q)$(call COPY,$(call NATIVEEXE,tools/convimg/bin/convimg),$(INSTALL_BIN))
--	#$(Q)$(call COPY,$(call NATIVEEXE,tools/convbin/bin/convbin),$(INSTALL_BIN))
+-	$(Q)$(call COPY,$(call NATIVEEXE,tools/convbin/bin/convbin),$(INSTALL_BIN))
  	$(Q)$(call COPY,$(call NATIVEEXE,tools/cedev-config/bin/cedev-config),$(INSTALL_BIN))
  	$(Q)$(call COPY,$(call NATIVEEXE,tools/cedev-obj/bin/cedev-obj),$(INSTALL_BIN))
  	$(Q)$(WINDOWS_COPY)
@@ -40,7 +40,7 @@ index f5f5b302..4dcad491 100644
  
  libs-zip:
 diff --git a/src/makefile.mk b/src/makefile.mk
-index ac24f3ce..4d9d5b11 100644
+index 1e8fe97a..d9828db1 100644
 --- a/src/makefile.mk
 +++ b/src/makefile.mk
 @@ -54,7 +54,7 @@ PREFER_OS_LIBC ?= YES

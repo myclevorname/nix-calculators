@@ -8,12 +8,12 @@
 }:
 stdenv.mkDerivation {
   pname = "binutils-z80";
-  version = "nightly-unstable-2026-01-06";
+  version = "nightly-unstable-2026-01-31";
   src = fetchFromGitHub {
     owner = "CE-Programming";
     repo = "binutils-gdb";
-    rev = "91658d4e49b09a110083beb677b9fa1085c93461";
-    hash = "sha256-dQfDyAyg45ET/XfSHfSJ069rvCGoiuUtCCQTys/NMzI=";
+    rev = "bdf0e52cab29cd946beb4f785330cbc35a98b9c2";
+    hash = "sha256-3ZvgnU/etooW3o9497/LoMyJmMnWIEhMvBPIdBgrJfQ=";
   };
   enableParallelBuilding = true;
   configureFlags = [
